@@ -1,7 +1,18 @@
+using CatalogoProdutosMVC.Database;
+using CatalogoProdutosMVC.Repositories;
+using CatalogoProdutosMVC.Repositories.Contracts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//ConnectionString
+string cnn = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<CatalogoProdutosDbContext>(op => op.UseSqlServer(cnn));
+
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 
 var app = builder.Build();
 
@@ -22,6 +33,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Products}/{action=Index}/{id?}");
 
 app.Run();

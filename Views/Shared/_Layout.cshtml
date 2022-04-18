@@ -3,45 +3,95 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CatalogoProdutosMVC</title>
+    <title>@ViewData["Title"] - Catalogo de Produtos</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CatalogoProdutosMVC.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CatalogoProdutosMVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <div class="btn_menu">
+        <span class="fas fa-bars"></span>
+    </div>
+    <nav class="sidebar">
+        <div class="text">
+            <a role="button" asp-controller="Products" asp-action="Index">Catalogo</a>
+        </div>
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#masculino_collapse" aria-expanded="true">
+                    Masculino
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                <div class="collapse show" id="masculino_collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
+                        <li><a href="#" class="link-dark rounded">Camisetas</a></li>
+                        <li><a href="#" class="link-dark rounded">Calças</a></li>
+                        <li><a href="#" class="link-dark rounded">Calçados</a></li>
+                        <li><a href="#" class="link-dark rounded">Roupas Intimas</a></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#feminino_collapse" aria-expanded="false">
+                    Feminino
+                </button>
+                <div class="collapse" id="feminino_collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
+                        <li><a href="#" class="link-dark rounded">Camisetas</a></li>
+                        <li><a href="#" class="link-dark rounded">Calças</a></li>
+                        <li><a href="#" class="link-dark rounded">Calçados</a></li>
+                        <li><a href="#" class="link-dark rounded">Roupas Intimas</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#infantil_collapse" aria-expanded="false">
+                    infantil
+                </button>
+                <div class="collapse" id="infantil_collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
+                        <li><a href="#" class="link-dark rounded" id="camisetas">Camisetas</a></li>
+                        <li><a href="#" class="link-dark rounded">Calças</a></li>
+                        <li><a href="#" class="link-dark rounded">Calçados</a></li>
+                        <li><a href="#" class="link-dark rounded">Roupas Intimas</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#pedidos_collapse" aria-expanded="false">
+                    Pedidos
+                </button>
+                <div class="collapse" id="pedidos_collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
+                        <li><a class="link-dark rounded" id="camisetas" asp-controller="Products" asp-action="Pedidos">Pedidos pendentes</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="border-top my-3"></li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                    Cadastar Produto
+                </button>
+                <div class="collapse" id="account-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
+                        <li><a class="link-dark rounded" asp-controller="Products" asp-action="Cadastro">Novo produto</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - CatalogoProdutosMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @*    <footer class="border-top footer text-muted" style="background: #212529">
+        <div class="container" style="color:white">
+        &copy; 2022 - Catalogo de Produtos
         </div>
-    </footer>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

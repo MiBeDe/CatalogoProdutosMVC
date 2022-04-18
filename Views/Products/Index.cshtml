@@ -1,0 +1,66 @@
+﻿@model List<ProdutoModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light display-4">Catalogo de Produtos</h1>
+            <p class="lead text-muted">If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. There is no minimum donation, any sum is appreciated - click here to donate using PayPal. Thank you for your support.</p>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-12">
+                <img src="~/assets/images/camiseta-branca-sus.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Maculina</h5>
+                    <p class="card-text">Camiseta masculina super confortavel, 100% algodão...</p>
+                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
+                    <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
+                    <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="rounded">
+<div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-12">
+                <img src="~/assets/images/calça_feminina.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Calça Feminina</h5>
+                    <p class="card-text">Calça feminina super confortavel, 100% algodão...</p>
+                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
+                    <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
+                    <a role="button" asp-route-id="" asp-controller="" asp-action="" class="btn btn-dark btn-sm">Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="rounded">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-12">
+                <img src="~/assets/images/sapatilha-feminina.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Sapatilha Feminina </h5>
+                    <p class="card-text">Sapatilha feminina super confortavel...</p>
+                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
+                    <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
+                    <a role="button" asp-route-id="" asp-controller="" asp-action="" class="btn btn-dark btn-sm">Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="rounded">
+</div>

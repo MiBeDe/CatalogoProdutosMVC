@@ -1,0 +1,52 @@
+﻿@using CatalogoProdutosMVC.Enums
+@model ProdutoModel
+@{
+    ViewData["Title"] = "Cadastro de produtos";
+}
+<br />
+<br />
+<br />
+<br />
+<div class="text-center">
+    <h1 class="display-3">Cadastrar Produtos</h1>
+</div>
+<br />
+<form class="row g-3" asp-controller="" asp-action="" method="post">
+    <input type="hidden" />
+    <div class="col-md-12">
+        <label for="inputEmail4" class="form-label">Nome do produto</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="col-6">
+        <label for="inputAddress" class="form-label">Preço</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="col-6">
+        <label for="inputAddress2" class="form-label">Quantidade</label>
+        <input type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Situacao">Categoria</label>
+        <select asp-for="IdCategoria" class="form-control">
+            <option value="">Selecione</option>
+            <option value="@CategoriaEnum.Camiseta">Camiseta</option>
+            <option value="@CategoriaEnum.Calça">Calça</option>
+            <option value="@CategoriaEnum.Blusa">Blusa</option>
+            <option value="@CategoriaEnum.Calçado">Calçado</option>
+            <option value="@CategoriaEnum.Bone">Boné</option>
+            <option value="@CategoriaEnum.Meia">Meia</option>
+            <option value="@CategoriaEnum.RoupaIntima">Roupa Intima</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Descrição</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+        <a role="button" class="btn btn-sm btn-secondary" asp-controller="Products" asp-action="Index">Voltar</a>
+    </div>
+</form>
