@@ -11,8 +11,8 @@ namespace CatalogoProdutosMVC.Repositories
     public class ProdutoRepository : IProdutoRepository
     {
         //private readonly CatalogoProdutosDbContext _context;
-        private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
-        //private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
+        //private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
+        private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
         private string projetoId;
         FirestoreDb _firestoreDb;
 
@@ -88,7 +88,7 @@ namespace CatalogoProdutosMVC.Repositories
             await collectionReference.AddAsync(produto);            
         }
 
-        public async Task<List<ProdutoModel>> GetProdutos()
+        public async Task<List<ProdutoModel>> GetProdutos(string categoria, string subCategoria)
         {
             Query produtosQuery = _firestoreDb.Collection("produtos");
             QuerySnapshot produtosQuerySnapshot = await produtosQuery.GetSnapshotAsync();
@@ -106,6 +106,13 @@ namespace CatalogoProdutosMVC.Repositories
                     listaProdutos.Add(produtoModel);
                 }
             }
+
+            if(categoria != "")
+            {
+                List<ProdutoModel> listFiltrada = listaProdutos.Where(x => x.Categoria == categoria && x.SubCategoria == subCategoria).ToList();
+                return listFiltrada;
+            }
+
 
             return listaProdutos;
         }

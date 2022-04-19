@@ -15,7 +15,10 @@ namespace CatalogoProdutosMVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var produtos = await _produtoRepository.GetProdutos();
+            string categoria = HttpContext.Request.Query["categoria"].ToString();
+            string subCategoria = HttpContext.Request.Query["subcategoria"].ToString();
+            
+            var produtos = await _produtoRepository.GetProdutos(categoria, subCategoria);
 
             return View(produtos);
         }
