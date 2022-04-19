@@ -13,5 +13,7 @@ namespace CatalogoProdutosMVC.Models
         public int Quantidade { get; set; }
         public string PathImages { get; set; }
         public string GitCu { get; set; }
+
+        public string GitRola { get; set; }
     }
 }
