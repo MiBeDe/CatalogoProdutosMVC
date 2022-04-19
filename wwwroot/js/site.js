@@ -5,7 +5,7 @@
 
 $(document).ready(function () {
     getDatatable('#table_pedidos');
-})
+});
 
 function getDatatable(id) {
     $(id).DataTable({

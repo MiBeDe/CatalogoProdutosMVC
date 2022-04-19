@@ -28,6 +28,11 @@ namespace CatalogoProdutosMVC.Controllers
             return View();
         }
 
+        public IActionResult Detalhes()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Cadastro(ProdutoModel produto, IFormFile Imagem1, IFormFile Imagem2, IFormFile Imagem3)
         {
