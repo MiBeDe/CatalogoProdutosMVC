@@ -1,4 +1,5 @@
-﻿@model List<ProdutoModel>
+﻿@using System.Globalization
+@model List<ProdutoModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -24,7 +25,7 @@
                     <p class="card-text">@item.Descricao</p>
                     @*<p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>*@
                     <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
-                    <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">@item.Preco</a>
+                    <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">@item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
                 </div>
             </div>
         </div>
@@ -32,37 +33,3 @@
     <hr class="rounded">
     </div>
 }
-@*<div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-12">
-                <img src="~/assets/images/calça_feminina.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Calça Feminina</h5>
-                    <p class="card-text">Calça feminina super confortavel, 100% algodão...</p>
-                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
-                    <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
-                    <a role="button" asp-route-id="" asp-controller="" asp-action="" class="btn btn-dark btn-sm">Detalhes</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="rounded">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-12">
-                <img src="~/assets/images/sapatilha-feminina.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Sapatilha Feminina </h5>
-                    <p class="card-text">Sapatilha feminina super confortavel...</p>
-                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
-                    <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
-                    <a role="button" asp-route-id="" asp-controller="" asp-action="" class="btn btn-dark btn-sm">Detalhes</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="rounded">*@
