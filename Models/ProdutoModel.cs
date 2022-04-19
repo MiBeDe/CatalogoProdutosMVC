@@ -17,5 +17,7 @@ namespace CatalogoProdutosMVC.Models
         public string GitRola { get; set; }
 
         public string GitTeta { get; set; }
+
+        public int fodase { get; set; }
     }
 }
