@@ -12,5 +12,6 @@ namespace CatalogoProdutosMVC.Models
         public double Preco { get; set; }
         public int Quantidade { get; set; }
         public string PathImages { get; set; }
+        public string GitCu { get; set; }
     }
 }
