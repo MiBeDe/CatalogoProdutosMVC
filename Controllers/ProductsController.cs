@@ -28,9 +28,12 @@ namespace CatalogoProdutosMVC.Controllers
             return View();
         }
 
-        public IActionResult Detalhes()
+
+        public async Task<IActionResult> Detalhes(string idProd)
         {
-            return View();
+            var produto = await _produtoRepository.GetProdutoById(idProd);
+
+            return View(produto);
         }
 
         [HttpPost]

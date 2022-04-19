@@ -24,7 +24,7 @@
                     <h5 class="card-title">@item.NomeProduto</h5>
                     <p class="card-text">@item.Descricao</p>
                     @*<p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>*@
-                    <a role="button" asp-route-id="@item.IdProd" asp-controller="Products" asp-action="Detalhes" class="btn btn-primary btn-sm">Ver detalhes</a>
+                    <a role="button" asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes" class="btn btn-primary btn-sm">Ver detalhes</a>
                     <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">@item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
                 </div>
             </div>

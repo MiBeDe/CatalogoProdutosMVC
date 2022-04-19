@@ -10,9 +10,8 @@ namespace CatalogoProdutosMVC.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        //private readonly CatalogoProdutosDbContext _context;
-        private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
-        //private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
+        //private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
+        private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
         private string projetoId;
         FirestoreDb _firestoreDb;
 
@@ -21,7 +20,6 @@ namespace CatalogoProdutosMVC.Repositories
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", diretorio);
             projetoId = "catalogoprodutoswebmvc";
             _firestoreDb = FirestoreDb.Create(projetoId);
-            //_context = context;
         }
 
         public async Task CadastrarProduto(ProdutoModel produto, IFormFile Imagem1, IFormFile Imagem2, IFormFile Imagem3)
@@ -90,7 +88,6 @@ namespace CatalogoProdutosMVC.Repositories
             CollectionReference collectionReference = _firestoreDb.Collection("produtos");
             await collectionReference.AddAsync(produto);            
         }
-
         public async Task<List<ProdutoModel>> GetProdutos(string categoria, string subCategoria)
         {
             Query produtosQuery = _firestoreDb.Collection("produtos");
@@ -120,15 +117,20 @@ namespace CatalogoProdutosMVC.Repositories
             return listaProdutos;
         }
 
-        //public List<ProdutoModel> GetProdutos()
-        //{
-        //    var produtos = _context.ProdutosWeb.ToList().OrderBy(x => x.IdProd);
+        public async Task<ProdutoModel> GetProdutoById(string idProd)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("produtos").Document(idProd);
+            DocumentSnapshot documentSnapshot = await documentReference.GetSnapshotAsync();
 
-        //    List<ProdutoModel> produtosList = new List<ProdutoModel>();
-        //    produtosList = produtos.ToList();
+            if (documentSnapshot.Exists)
+            {
+                ProdutoModel produtoModel = documentSnapshot.ConvertTo<ProdutoModel>();
+                return produtoModel;
+            }
 
-        //    return produtosList;
-        //}
+            return null;
+        }
+
     }
 
 }
