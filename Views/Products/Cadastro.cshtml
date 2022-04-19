@@ -11,39 +11,53 @@
     <h1 class="display-3">Cadastrar Produtos</h1>
 </div>
 <br />
-<form class="row g-3" asp-controller="" asp-action="" method="post">
+<form class="row g-3" asp-controller="Products" asp-action="Cadastro" method="post" enctype="multipart/form-data">
     <input type="hidden" />
     <div class="col-md-12">
-        <label for="inputEmail4" class="form-label">Nome do produto</label>
-        <input type="text" class="form-control" />
+        <label for="nomeProduto" class="form-label">Nome do produto</label>
+        <input asp-for="NomeProduto" class="form-control"/>
     </div>
     <div class="col-6">
-        <label for="inputAddress" class="form-label">Preço</label>
-        <input type="text" class="form-control" />
+        <label for="preco" class="form-label">Preço</label>
+        <input asp-for="Preco" class="form-control" />
     </div>
     <div class="col-6">
-        <label for="inputAddress2" class="form-label">Quantidade</label>
-        <input type="number" class="form-control" />
+        <label for="quantidade" class="form-label">Quantidade</label>
+        <input asp-for="Quantidade" type="number" class="form-control" />
     </div>
     <div class="form-group">
-        <label for="Situacao">Categoria</label>
-        <select asp-for="IdCategoria" class="form-control">
+        <label for="categoria">Categoria</label>
+        <select asp-for="Categoria" class="form-control">
             <option value="">Selecione</option>
-            <option value="@CategoriaEnum.Camiseta">Camiseta</option>
-            <option value="@CategoriaEnum.Calça">Calça</option>
-            <option value="@CategoriaEnum.Blusa">Blusa</option>
-            <option value="@CategoriaEnum.Calçado">Calçado</option>
-            <option value="@CategoriaEnum.Bone">Boné</option>
-            <option value="@CategoriaEnum.Meia">Meia</option>
-            <option value="@CategoriaEnum.RoupaIntima">Roupa Intima</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descrição</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="Situacao">SubCategoria</label>
+        <select asp-for="SubCategoria" class="form-control">
+            <option value="">Selecione</option>
+            <option value="Camiseta">Camiseta</option>
+            <option value="Calca">Calça</option>
+            <option value="Blusa">Blusa</option>
+            <option value="Calcado">Calçado</option>
+            <option value="Bone">Boné</option>
+            <option value="Meia">Meia</option>
+            <option value="RoupaIntima">Roupa Intima</option>
+        </select>
     </div>
     <div class="form-group">
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <label for="descricao">Descrição</label>
+        <textarea asp-for="Descricao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control-file" name="Imagem1">
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control-file" name="Imagem2">
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control-file" name="Imagem3">
     </div>
     <div class="col-12">
         <button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>

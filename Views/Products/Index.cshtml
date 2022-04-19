@@ -11,25 +11,28 @@
         </div>
     </div>
 </section>
-<div class="container">
+@foreach (var item in Model){
+    <div class="container">
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-12">
-                <img src="~/assets/images/camiseta-branca-sus.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="@item.Image1" style="width:538px;">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Camiseta Maculina</h5>
-                    <p class="card-text">Camiseta masculina super confortavel, 100% algodão...</p>
-                    <p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>
+                    <h5 class="card-title">@item.NomeProduto</h5>
+                    <p class="card-text">@item.Descricao</p>
+                    @*<p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>*@
                     <a role="button" asp-route-id="" class="btn btn-primary btn-sm">Comprar</a>
-                    <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">Detalhes</a>
+                    <a role="button" asp-route-id="" asp-controller="Produtos" asp-action="Detalhes" class="btn btn-dark btn-sm">@item.Preco</a>
                 </div>
             </div>
         </div>
     </div>
     <hr class="rounded">
-<div class="card mb-3" style="max-width: 540px;">
+    </div>
+}
+@*<div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-12">
                 <img src="~/assets/images/calça_feminina.jpg" class="img-fluid rounded-start" alt="...">
@@ -62,5 +65,4 @@
             </div>
         </div>
     </div>
-    <hr class="rounded">
-</div>
+    <hr class="rounded">*@
