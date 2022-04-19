@@ -20,7 +20,7 @@ namespace CatalogoProdutosMVC.Controllers
             
             var produtos = await _produtoRepository.GetProdutos(categoria, subCategoria);
 
-            return View(produtos);
+            return View(produtos); 
         }
 
         public IActionResult Cadastro()

@@ -103,7 +103,7 @@ namespace CatalogoProdutosMVC.Repositories
 
                     ProdutoModel produtoModel = JsonConvert.DeserializeObject<ProdutoModel>(json);
                     produtoModel.IdProd = documentSnapshot.Id;
-                    listaProdutos.Add(produtoModel);
+                    listaProdutos.Add(produtoModel); 
                 }
             }
 
