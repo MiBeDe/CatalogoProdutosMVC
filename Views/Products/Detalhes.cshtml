@@ -8,13 +8,13 @@
             <div class="carousel-item active">
                 <img src="@Model.Image1" alt="img_01" style="max-width: 360px; min-width: 360px; height: 25em;" />
             </div>
-            @if(Model.Image2 != "")
+            @if(Model.Image2 != null)
             {
                 <div class="carousel-item">
                     <img src="@Model.Image2" alt="img_02" style="max-width: 360px; min-width: 360px; height: 25em;" />
                 </div>
             }
-            @if(Model.Image3 != "")
+            @if(Model.Image3 != null)
             {
                 <div class="carousel-item">
                     <img src="@Model.Image3" alt="img_03" style="max-width: 360px; height: 25em;" />

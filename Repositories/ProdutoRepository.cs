@@ -68,12 +68,15 @@ namespace CatalogoProdutosMVC.Repositories
                 {
                     case 0:
                         produto.Image1 = downloadURL;
+                        downloadURL = null;
                         break;
                     case 1:
                         produto.Image2 = downloadURL;
+                        downloadURL = null;
                         break;
                     case 2:
                         produto.Image3 = downloadURL;
+                        downloadURL = null;
                         break;
                     default:
                         break;
