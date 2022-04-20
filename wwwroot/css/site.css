@@ -180,3 +180,47 @@ hr.rounded {
     background-color: #1C1C1C;
     border-radius: 4px;
 }
+
+#div_descricao_detalhes {
+    border: 1px solid #E8E8E8;
+    padding: 10px 10px;
+    border-radius: 4px;
+}
+
+#div_nome_detalhes {
+    font-weight: 400;
+    border-bottom: 1px solid black;
+}
+.categoria_detalhes {
+    font-size: 12px
+}
+
+.div_tamanhos_01 {
+    padding: 10px 5px;
+    padding-bottom: 0px;
+    max-width: 360px;
+}
+
+#div_tamanhos {
+    display: flex;
+}
+
+.tamanho {
+    width: 26px;
+    border-radius: 2px;
+    border: 1px solid black;
+    padding: 2px 2px;
+    text-align:center;
+    font-size: 10px;
+    color: black;
+}
+
+.containerr {
+    display: flex;
+    justify-content: center;
+}
+
+.tamanho{
+    margin-right: 10px;
+    margin-left: 10px
+}
