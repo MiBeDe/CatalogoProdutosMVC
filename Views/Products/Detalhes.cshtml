@@ -191,21 +191,6 @@
             @*Verificação tamanho (Calçados)*@
             @if (ViewBag.tamanho == "Numero")
             {
-                if (Model.checksTamanhos.Tamanho33 == true)
-                {
-                    <button type="button" class="btn tamanho">33</button>
-                }
-                else
-                {
-                    <button type="button" class="btn position-relative tamanho" disabled>
-                        33
-                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                            X
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-
-                    </button>
-                }
                 if (Model.checksTamanhos.Tamanho34 == true)
                 {
                     <button type="button" class="btn tamanho">34</button>
