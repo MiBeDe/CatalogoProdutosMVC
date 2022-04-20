@@ -25,7 +25,7 @@
                     <p class="card-text">@item.Descricao</p>
                     @*<p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>*@
                     <a role="button" asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes" class="btn btn-primary btn-sm">Ver detalhes</a>
-                    <button type="button" class="btn btn-dark btn-sm">@item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</button>
+                    <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
                 </div>
             </div>
         </div>
