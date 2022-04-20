@@ -4,29 +4,29 @@
 }
 <div class="container" style="max-width: 360px;">
     <div id="carousel_produtos" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" style="height: 25em;">           
+        <div class="carousel-inner" style="height: 27em;">           
             <div class="carousel-item active">
-                <img src="@Model.Image1" alt="img_01" style="max-width: 360px; min-width: 360px; height: 25em;" />
+                <img src="@Model.Image1" alt="img_01" style="max-width: 360px; min-width: 360px; height: 27em;" />
             </div>
             @if(Model.Image2 != null)
             {
                 <div class="carousel-item">
-                    <img src="@Model.Image2" alt="img_02" style="max-width: 360px; min-width: 360px; height: 25em;" />
+                    <img src="@Model.Image2" alt="img_02" style="max-width: 360px; min-width: 360px; height: 27em;" />
                 </div>
             }
             @if(Model.Image3 != null)
             {
                 <div class="carousel-item">
-                    <img src="@Model.Image3" alt="img_03" style="max-width: 360px; min-width: 360px; height: 25em;" />
+                    <img src="@Model.Image3" alt="img_03" style="max-width: 360px; min-width: 360px; height: 27em;" />
                 </div>
             }           
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel_produtos" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon" id="btn_prev" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carousel_produtos" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" id="btn_next" aria-hidden="true"></span>
             <span class="visually-hidden">Proximo</span>
         </button>
     </div>

@@ -166,3 +166,17 @@ hr.rounded {
     text-decoration: none;
     color: white;
 }
+
+#id_btn_preco {
+    cursor: text;
+}
+
+#btn_next {
+    background-color: #1C1C1C;
+    border-radius: 4px;
+}
+
+#btn_prev {
+    background-color: #1C1C1C;
+    border-radius: 4px;
+}
