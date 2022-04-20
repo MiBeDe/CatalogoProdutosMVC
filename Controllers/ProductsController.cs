@@ -48,31 +48,76 @@ namespace CatalogoProdutosMVC.Controllers
                 {
                     case "PP":
                         produtoDTO.checksTamanhos.PP = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "P":
                         produtoDTO.checksTamanhos.P = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "M":
                         produtoDTO.checksTamanhos.M = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "G":
                         produtoDTO.checksTamanhos.G = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "GG":
                         produtoDTO.checksTamanhos.GG = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "XG":
                         produtoDTO.checksTamanhos.XG = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "XGG":
                         produtoDTO.checksTamanhos.XGG = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "EG":
                         produtoDTO.checksTamanhos.EG = true;
+                        ViewBag.tamanho = "Letra";
                         break;
                     case "EGG":
                         produtoDTO.checksTamanhos.EGG = true;
-                        break;                       
+                        ViewBag.tamanho = "Letra";
+                        break;
+                    case "35":
+                        produtoDTO.checksTamanhos.Tamanho35 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "36":
+                        produtoDTO.checksTamanhos.Tamanho36 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "37":
+                        produtoDTO.checksTamanhos.Tamanho37 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "38":
+                        produtoDTO.checksTamanhos.Tamanho38 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "39":
+                        produtoDTO.checksTamanhos.Tamanho39 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "40":
+                        produtoDTO.checksTamanhos.Tamanho40 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "41":
+                        produtoDTO.checksTamanhos.Tamanho41 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "42":
+                        produtoDTO.checksTamanhos.Tamanho42 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "43":
+                        produtoDTO.checksTamanhos.Tamanho43 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
                     default:
                         break;
                 }

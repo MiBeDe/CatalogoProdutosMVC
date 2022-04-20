@@ -45,99 +45,286 @@
 <div class="containerr">
     <div class="div_tamanhos_01">
         <div id="div_tamanhos">
-            @if (Model.checksTamanhos.PP == true)
+            @if (ViewBag.tamanho == "Letra")
             {
-                <button type="button" class="btn position-relative tamanho">PP</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    PP
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                if (Model.checksTamanhos.PP == true)
+                {
+                    <button type="button" class="btn position-relative tamanho">PP</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        PP
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
-            }
+                    </button>
+                }
 
-            @if (Model.checksTamanhos.P == true)
-            {
-                <button type="button" class="btn position-relative tamanho">P</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    P
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                if (Model.checksTamanhos.P == true)
+                {
+                    <button type="button" class="btn position-relative tamanho">P</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        P
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
-            }
+                    </button>
+                }
 
-            @if (Model.checksTamanhos.M == true)
-            {
-                <button type="button" class="btn position-relative tamanho">M</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    M
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                if (Model.checksTamanhos.M == true)
+                {
+                    <button type="button" class="btn position-relative tamanho">M</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        M
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
-            }
+                    </button>
+                }
 
-            @if (Model.checksTamanhos.G == true)
-            {
-                <button type="button" class="tamanho">G</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    G
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                if (Model.checksTamanhos.G == true)
+                {
+                    <button type="button" class="tamanho">G</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        G
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
-            }
+                    </button>
+                }
 
-            @if (Model.checksTamanhos.GG == true)
-            {
-                <button type="button" class="tamanho">GG</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    GG
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                if (Model.checksTamanhos.GG == true)
+                {
+                    <button type="button" class="tamanho">GG</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        GG
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
-            }
-            @if (Model.checksTamanhos.EG == true)
-            {
-                <button type="button" class="tamanho">EG</button>
-            }
-            else
-            {
-                <button type="button" class="btn position-relative tamanho" disabled>
-                    EG
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                        X
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
+                    </button>
+                }
+                if (Model.checksTamanhos.XG == true)
+                {
+                    <button type="button" class="tamanho">XG</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        XG
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
 
-                </button>
+                    </button>
+                }
+                if (Model.checksTamanhos.XGG == true)
+                {
+                    <button type="button" class="tamanho">XGG</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        XGG
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.EG == true)
+                {
+                    <button type="button" class="tamanho">EG</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        EG
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.EGG == true)
+                {
+                    <button type="button" class="tamanho">EGG</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        EGG
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+            }
+            @if (ViewBag.tamanho == "Numero")
+            {
+                if (Model.checksTamanhos.Tamanho35 == true)
+                {
+                    <button type="button" class="tamanho">35</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        35
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+
+                if (Model.checksTamanhos.Tamanho36 == true)
+                {
+                    <button type="button" class="tamanho">36</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        36
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho37 == true)
+                {
+                    <button type="button" class="tamanho">37</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        37
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho38 == true)
+                {
+                    <button type="button" class="tamanho">38</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        38
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho39 == true)
+                {
+                    <button type="button" class="tamanho">39</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        39
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho40 == true)
+                {
+                    <button type="button" class="tamanho">40</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        40
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho41 == true)
+                {
+                    <button type="button" class="tamanho">41</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        41
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho42 == true)
+                {
+                    <button type="button" class="tamanho">42</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        42
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
+                if (Model.checksTamanhos.Tamanho43 == true)
+                {
+                    <button type="button" class="tamanho">43</button>
+                }
+                else
+                {
+                    <button type="button" class="btn position-relative tamanho" disabled>
+                        43
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                            X
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+
+                    </button>
+                }
             }
         </div>
     </div>
