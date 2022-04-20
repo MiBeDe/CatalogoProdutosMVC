@@ -15,6 +15,10 @@ namespace CatalogoProdutosMVC.Models
         [FirestoreProperty]
         public string Descricao { get; set; }
         [FirestoreProperty]
+        public string Tamanho { get; set; }
+        [FirestoreProperty]
+        public string Cor { get; set; }
+        [FirestoreProperty]
         public double Preco { get; set; }
         [FirestoreProperty]
         public int Quantidade { get; set; }
