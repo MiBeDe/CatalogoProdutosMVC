@@ -82,6 +82,14 @@ namespace CatalogoProdutosMVC.Controllers
                         produtoDTO.checksTamanhos.EGG = true;
                         ViewBag.tamanho = "Letra";
                         break;
+                    case "33":
+                        produtoDTO.checksTamanhos.Tamanho33 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "34":
+                        produtoDTO.checksTamanhos.Tamanho34 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
                     case "35":
                         produtoDTO.checksTamanhos.Tamanho35 = true;
                         ViewBag.tamanho = "Numero";
