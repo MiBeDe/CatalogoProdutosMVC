@@ -17,7 +17,9 @@
     <div class="card mb-3" style="max-width: 352px;">
         <div class="row g-0">
             <div class="col-md-12">
-                <img src="@item.Image1" style="width:350px; max-height: 410px">
+                <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
+                    <img src="@item.Image1" style="width:350px; max-height: 410px">
+                </a>             
             </div>
             <div class="col-md-8">
                 <div class="card-body">
