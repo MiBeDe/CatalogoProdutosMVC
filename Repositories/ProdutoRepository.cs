@@ -128,6 +128,7 @@ namespace CatalogoProdutosMVC.Repositories
             if (documentSnapshot.Exists)
             {
                 ProdutoModel produtoModel = documentSnapshot.ConvertTo<ProdutoModel>();
+
                 return produtoModel;
             }
 

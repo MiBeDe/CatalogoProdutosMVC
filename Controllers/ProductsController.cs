@@ -37,7 +37,48 @@ namespace CatalogoProdutosMVC.Controllers
         {
             var produto = await _produtoRepository.GetProdutoById(idProd);
 
-            return View(produto);
+            ProdutoDTO produtoDTO = _mapper.Map<ProdutoModel, ProdutoDTO>(produto);
+
+            var produtoTamanho = produto.Tamanho.Split('-');
+            produtoDTO.checksTamanhos = new ChecksTamanhosDTO();
+
+            foreach (var item in produtoTamanho)
+            {
+                switch (item.Trim())
+                {
+                    case "PP":
+                        produtoDTO.checksTamanhos.PP = true;
+                        break;
+                    case "P":
+                        produtoDTO.checksTamanhos.P = true;
+                        break;
+                    case "M":
+                        produtoDTO.checksTamanhos.M = true;
+                        break;
+                    case "G":
+                        produtoDTO.checksTamanhos.G = true;
+                        break;
+                    case "GG":
+                        produtoDTO.checksTamanhos.GG = true;
+                        break;
+                    case "XG":
+                        produtoDTO.checksTamanhos.XG = true;
+                        break;
+                    case "XGG":
+                        produtoDTO.checksTamanhos.XGG = true;
+                        break;
+                    case "EG":
+                        produtoDTO.checksTamanhos.EG = true;
+                        break;
+                    case "EGG":
+                        produtoDTO.checksTamanhos.EGG = true;
+                        break;                       
+                    default:
+                        break;
+                }
+            }
+
+            return View(produtoDTO);
         }
 
         [HttpPost]
@@ -289,7 +330,6 @@ namespace CatalogoProdutosMVC.Controllers
 
 
             ProdutoModel produtoModel = _mapper.Map<ProdutoDTO, ProdutoModel>(produto);
-
             
             await _produtoRepository.CadastrarProduto(produtoModel, Imagem1, Imagem2, Imagem3);
             return RedirectToAction(nameof(Index));
