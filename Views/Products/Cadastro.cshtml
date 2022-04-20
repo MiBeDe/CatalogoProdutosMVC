@@ -1,5 +1,6 @@
-﻿@using CatalogoProdutosMVC.Enums
-@model ProdutoModel
+﻿@using CatalogoProdutosMVC.DTO
+@using CatalogoProdutosMVC.Enums
+@model ProdutoDTO
 @{
     ViewData["Title"] = "Cadastro de produtos";
 }
@@ -34,44 +35,44 @@
             </p>
             <div class="collapse" id="collapse_roupas">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
-                    <label class="form-check-label" for="inlineRadio1">PP</label>
-                </div>
+                    <input asp-for="@Model.checksTamanhos.PP" class="form-check-input" type="checkbox" name="checksTamanhos.PP">
+                    <label class="form-check-label" for="PP">PP</label>
+               </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.P" class="form-check-input" type="checkbox" name="checksTamanhos.P">
                     <label class="form-check-label" for="inlineRadio1">P</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.M" class="form-check-input" type="checkbox" name="checksTamanhos.M">
                     <label class="form-check-label" for="inlineRadio2">M</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.G" class="form-check-input" type="checkbox" name="checksTamanhos.G">
                     <label class="form-check-label" for="inlineRadio3">G</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.GG" class="form-check-input" type="checkbox" name="checksTamanhos.GG">
                     <label class="form-check-label" for="inlineRadio3">GG</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.XG" class="form-check-input" type="checkbox" name="checksTamanhos.XG">
                     <label class="form-check-label" for="inlineRadio3">XG</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.XGG" class="form-check-input" type="checkbox" name="checksTamanhos.XGG">
                     <label class="form-check-label" for="inlineRadio3">XGG</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.EG" class="form-check-input" type="checkbox" name="checksTamanhos.EG">
                     <label class="form-check-label" for="inlineRadio3">EG</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.EGG" class="form-check-input" type="checkbox" name="checksTamanhos.EGG">
                     <label class="form-check-label" for="inlineRadio3">EGG</label>
                 </div>
             </div>
         </div>
-        <div>
+       <div>
             <p>
                 <button class="btn btn-primary" data-bs-toggle="collapse" href="#collapse_Calcados" type="button" aria-expanded="false" aria-controls="collapseExample">
                     Tamanhos de Calçados
@@ -79,47 +80,47 @@
             </p>
             <div class="collapse" id="collapse_Calcados">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho33" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho33">
                     <label class="form-check-label" for="inlineRadio1">33</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho34" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho34">
                     <label class="form-check-label" for="inlineRadio1">34</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho35" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho35">
                     <label class="form-check-label" for="inlineRadio2">35</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho36" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho36">
                     <label class="form-check-label" for="inlineRadio3">36</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho37" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho37">
                     <label class="form-check-label" for="inlineRadio3">37</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho38" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho38">
                     <label class="form-check-label" for="inlineRadio3">38</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho39" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho39">
                     <label class="form-check-label" for="inlineRadio3">39</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho40" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho40">
                     <label class="form-check-label" for="inlineRadio3">40</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho41" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho41">
                     <label class="form-check-label" for="inlineRadio3">41</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho42" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho42">
                     <label class="form-check-label" for="inlineRadio3">42</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="" value="">
+                    <input asp-for="@Model.checksTamanhos.Tamanho43" class="form-check-input" type="checkbox" name="checksTamanhos.Tamanho43">
                     <label class="form-check-label" for="inlineRadio3">43</label>
                 </div>
             </div>
