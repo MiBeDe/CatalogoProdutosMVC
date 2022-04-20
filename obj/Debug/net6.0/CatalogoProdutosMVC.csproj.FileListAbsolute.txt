@@ -239,3 +239,5 @@ E:\GitHubzin\CatalogoProdutosMVC\obj\Debug\net6.0\CatalogoProdutosMVC.genruntime
 E:\GitHubzin\CatalogoProdutosMVC\obj\Debug\net6.0\ref\CatalogoProdutosMVC.dll
 Y:\Github\CatalogoProdutosProject\CatalogoProdutos\bin\Debug\net6.0\AutoMapper.dll
 Y:\Github\CatalogoProdutosProject\CatalogoProdutos\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\GitHubzin\CatalogoProdutosMVC\bin\Debug\net6.0\AutoMapper.dll
+E:\GitHubzin\CatalogoProdutosMVC\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

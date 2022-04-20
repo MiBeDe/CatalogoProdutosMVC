@@ -45,13 +45,100 @@
 <div class="containerr">
     <div class="div_tamanhos_01">
         <div id="div_tamanhos">
-            <p class="tamanho">@(Model.checksTamanhos.PP ? "P" : "...")</p>
-            <p class="tamanho" >P</p>
-            <p class="tamanho" hidden="!@Model.checksTamanhos.M">M</p>
-            <p class="tamanho" hidden="!@Model.checksTamanhos.G">G</p>
-            <p class="tamanho" hidden="!@Model.checksTamanhos.GG">GG</p>
-            <p class="tamanho" hidden="!@Model.checksTamanhos.EG">EG</p>
-            <p class="tamanho" hidden="!@Model.checksTamanhos.EGG">EGG</p>
+            @if (Model.checksTamanhos.PP == true)
+            {
+                <button type="button" class="btn position-relative tamanho">PP</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    PP
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
+
+            @if (Model.checksTamanhos.P == true)
+            {
+                <button type="button" class="btn position-relative tamanho">P</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    P
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
+
+            @if (Model.checksTamanhos.M == true)
+            {
+                <button type="button" class="btn position-relative tamanho">M</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    M
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
+
+            @if (Model.checksTamanhos.G == true)
+            {
+                <button type="button" class="tamanho">G</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    G
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
+
+            @if (Model.checksTamanhos.GG == true)
+            {
+                <button type="button" class="tamanho">GG</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    GG
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
+            @if (Model.checksTamanhos.EG == true)
+            {
+                <button type="button" class="tamanho">EG</button>
+            }
+            else
+            {
+                <button type="button" class="btn position-relative tamanho" disabled>
+                    EG
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
+                        X
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+
+                </button>
+            }
         </div>
     </div>
 </div>
