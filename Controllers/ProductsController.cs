@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogoProdutosMVC.Controllers
 {
+    
     public class ProductsController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -17,12 +18,11 @@ namespace CatalogoProdutosMVC.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+      
+        public async Task<IActionResult> Index(string cat, string sub)
         {
-            string categoria = HttpContext.Request.Query["categoria"].ToString();
-            string subCategoria = HttpContext.Request.Query["subcategoria"].ToString();
             
-            var produtos = await _produtoRepository.GetProdutos(categoria, subCategoria);
+            var produtos = await _produtoRepository.GetProdutos(cat, sub);
 
             return View(produtos); 
         }

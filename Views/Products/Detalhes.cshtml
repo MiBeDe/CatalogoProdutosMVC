@@ -1,9 +1,11 @@
 ﻿@using CatalogoProdutosMVC.DTO
+@using System.Globalization
 @model ProdutoDTO
 @{
     ViewData["Title"] = "Detalhes";
 }
-<div class="container" style="max-width: 360px;">
+<div class="container" style="max-width:361px;">
+    <div class="container" style="max-width: 360px;">
     <div id="carousel_produtos" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner" style="height: 27em;">
             <div class="carousel-item active">
@@ -36,20 +38,26 @@
 <div class="container text-center" style="max-width: 400px">
     <h5 class="display-6" id="div_nome_detalhes">@Model.NomeProduto @Model.Categoria</h5>
     <p class="categoria_detalhes">Categoria: @Model.Categoria</p>
-    <br />
-    <div id="div_descricao_detalhes">
-        <h6>Descrição: @Model.Descricao</h6>
-    </div>
 </div>
-<br />
-<div class="containerr">
+<div class="container-sm">
+    <div style="display: inline-flex">
+        <div>
+             <p class="fs-4">Preço: &nbsp; </p>
+        </div>
+        <div>
+            <p class="fs-4" style="color: red">R$ @Model.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+        </div>       
+    </div>    
+</div>
+<div class="container">
     <div class="div_tamanhos_01">
         <div id="div_tamanhos">
             @if (ViewBag.tamanho == "Letra")
             {
                 if (Model.checksTamanhos.PP == true)
                 {
-                    <button type="button" class="btn position-relative tamanho">PP</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-pp" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-pp">PP</label>
                 }
                 else
                 {
@@ -65,7 +73,8 @@
 
                 if (Model.checksTamanhos.P == true)
                 {
-                    <button type="button" class="btn position-relative tamanho">P</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-p" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-p">P</label>
                 }
                 else
                 {
@@ -81,7 +90,8 @@
 
                 if (Model.checksTamanhos.M == true)
                 {
-                    <button type="button" class="btn position-relative tamanho">M</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-m" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-m">M</label>
                 }
                 else
                 {
@@ -97,7 +107,8 @@
 
                 if (Model.checksTamanhos.G == true)
                 {
-                    <button type="button" class=" btn tamanho">G</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-g" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-g">G</label>
                 }
                 else
                 {
@@ -113,7 +124,8 @@
 
                 if (Model.checksTamanhos.GG == true)
                 {
-                    <button type="button" class="btn tamanho">GG</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-gg" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-gg">GG</label>
                 }
                 else
                 {
@@ -128,7 +140,8 @@
                 }
                 if (Model.checksTamanhos.XG == true)
                 {
-                    <button type="button" class="btn tamanho">XG</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-xg" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-xg">XG</label>
                 }
                 else
                 {
@@ -143,7 +156,8 @@
                 }
                 if (Model.checksTamanhos.XGG == true)
                 {
-                    <button type="button" class="btn tamanho">XGG</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-xgg" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-xgg">XGG</label>
                 }
                 else
                 {
@@ -158,7 +172,8 @@
                 }
                 if (Model.checksTamanhos.EG == true)
                 {
-                    <button type="button" class="btn tamanho">EG</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-eg" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-eg">EG</label>
                 }
                 else
                 {
@@ -173,7 +188,8 @@
                 }
                 if (Model.checksTamanhos.EGG == true)
                 {
-                    <button type="button" class="btn tamanho">EGG</button>
+                    <input type="radio" name="btn-check-letra" class="btn-check" id="btn-check-egg" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-egg">EGG</label>
                 }
                 else
                 {
@@ -193,7 +209,8 @@
             {
                 if (Model.checksTamanhos.Tamanho34 == true)
                 {
-                    <button type="button" class="btn tamanho">34</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-34" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-34">34</label>
                 }
                 else
                 {
@@ -208,7 +225,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho35 == true)
                 {
-                    <button type="button" class="btn tamanho">35</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-35" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-35">35</label>
                 }
                 else
                 {
@@ -224,7 +242,8 @@
 
                 if (Model.checksTamanhos.Tamanho36 == true)
                 {
-                    <button type="button" class="btn tamanho">36</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-36" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-36">36</label>
                 }
                 else
                 {
@@ -239,7 +258,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho37 == true)
                 {
-                    <button type="button" class="btn tamanho">37</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-37" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-37">37</label>
                 }
                 else
                 {
@@ -254,7 +274,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho38 == true)
                 {
-                    <button type="button" class="btn tamanho">38</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-38" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-38">38</label>
                 }
                 else
                 {
@@ -269,7 +290,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho39 == true)
                 {
-                    <button type="button" class="btn tamanho">39</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-39" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-39">39</label>
                 }
                 else
                 {
@@ -284,7 +306,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho40 == true)
                 {
-                    <button type="button" class="btn tamanho">40</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-40" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-40">40</label>
                 }
                 else
                 {
@@ -299,7 +322,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho41 == true)
                 {
-                    <button type="button" class="btn tamanho">41</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-41" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-41">41</label>
                 }
                 else
                 {
@@ -314,7 +338,8 @@
                 }
                 if (Model.checksTamanhos.Tamanho42 == true)
                 {
-                    <button type="button" class="btn tamanho">42</button>
+                    <input type="radio" name="btn-check-numero" class="btn-check" id="btn-check-42" autocomplete="off">
+                    <label class="btn btn-outline-primary tamanho" for="btn-check-42">42</label>
                 }
                 else
                 {
@@ -332,6 +357,26 @@
     </div>
 </div>
 <br />
+    <div class="accordion accordion-flush container-fluid" id="accordionFlushDetalhes">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingDetalhes">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseDetalhes" aria-expanded="false" aria-controls="flush-collapseDetalhes">
+                    Detalhes
+                </button>
+            </h2>
+            <div id="flush-collapseDetalhes" class="accordion-collapse collapse" aria-labelledby="flush-headingDetalhes" data-bs-parent="#accordionFlushDetalhes">
+                <div class="accordion-body">
+                     The standard Lorem Ipsum passage, used since the 1500s
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+        Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                </div>
+            </div>
+        </div>
+    </div>
+<br />
 <div class="d-grid gap-2 col-9 mx-auto">
-    <button class="btn btn-success" type="button">Comprar</button>
+    <button class="btn btn-success" type="button">Pedir</button>
+</div>
 </div>
