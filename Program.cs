@@ -13,6 +13,8 @@ string cnn = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<CatalogoProdutosDbContext>(op => op.UseSqlServer(cnn));
 
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+
 
 //Add AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

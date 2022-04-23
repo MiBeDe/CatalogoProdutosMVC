@@ -2,6 +2,7 @@
 
 namespace CatalogoProdutosMVC.DTO
 {
+   
     public class PedidoDTO
     {
         [Required]

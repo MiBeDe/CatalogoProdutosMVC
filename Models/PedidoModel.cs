@@ -2,6 +2,7 @@
 
 namespace CatalogoProdutosMVC.Models
 {
+    [FirestoreData]
     public class PedidoModel
     {
         [FirestoreProperty]

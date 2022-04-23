@@ -11,8 +11,6 @@ namespace CatalogoProdutosMVC.Controllers
     {
         private readonly IProdutoRepository _produtoRepository;
         private readonly IMapper _mapper;
-        public List<SelectListItem> Options { get; set; }
-
         public ProductsController(IProdutoRepository produtoRepository, IMapper mapper)
         {
             _produtoRepository = produtoRepository;
@@ -388,25 +386,6 @@ namespace CatalogoProdutosMVC.Controllers
             await _produtoRepository.CadastrarProduto(produtoModel, Imagem1, Imagem2, Imagem3);
             return RedirectToAction(nameof(Index));
         }
-
-        [HttpPost]
-        public async Task<IActionResult> RealizarPedido(PedidoDTO pedido)
-        {
-            PedidoModel pedidoModel = _mapper.Map<PedidoDTO, PedidoModel>(pedido);
-            await _produtoRepository.IncluirPedido(pedidoModel);
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult Pedidos()
-        {
-            return View();
-        }
+    
     }
-}
-
-public class SelectListItem
-{
-    public string Value { get; set; }
-    public string Text { get; set; }
 }
