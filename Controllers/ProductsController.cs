@@ -390,9 +390,10 @@ namespace CatalogoProdutosMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RealizarPedido(ProdutoDTO produto)
+        public async Task<IActionResult> RealizarPedido(PedidoDTO pedido)
         {
-            var teste = await _produtoRepository.GetProdutos(null, null); 
+            PedidoModel pedidoModel = _mapper.Map<PedidoDTO, PedidoModel>(pedido);
+            await _produtoRepository.IncluirPedido(pedidoModel);
 
             return RedirectToAction(nameof(Index));
         }
