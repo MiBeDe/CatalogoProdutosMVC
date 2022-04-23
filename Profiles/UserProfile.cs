@@ -10,6 +10,8 @@ namespace CatalogoProdutosMVC.Profiles
         {
             CreateMap<ProdutoModel, ProdutoDTO>();
             CreateMap<ProdutoModel, ProdutoDTO>().ReverseMap();
+            CreateMap<PedidoModel, PedidoDTO>();
+            CreateMap<PedidoModel, PedidoDTO>().ReverseMap();
         }
 
     }

@@ -18,5 +18,6 @@
 
 
         public ChecksTamanhosDTO checksTamanhos { get; set; }
+        public PedidoDTO pedido { get; set; }
     }
 }

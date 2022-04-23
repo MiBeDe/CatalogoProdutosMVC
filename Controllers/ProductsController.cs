@@ -11,6 +11,7 @@ namespace CatalogoProdutosMVC.Controllers
     {
         private readonly IProdutoRepository _produtoRepository;
         private readonly IMapper _mapper;
+        public List<SelectListItem> Options { get; set; }
 
         public ProductsController(IProdutoRepository produtoRepository, IMapper mapper)
         {
@@ -21,7 +22,6 @@ namespace CatalogoProdutosMVC.Controllers
       
         public async Task<IActionResult> Index(string cat, string sub)
         {
-            
             var produtos = await _produtoRepository.GetProdutos(cat, sub);
 
             return View(produtos); 
@@ -41,6 +41,7 @@ namespace CatalogoProdutosMVC.Controllers
 
             var produtoTamanho = produto.Tamanho.Split('-');
             produtoDTO.checksTamanhos = new ChecksTamanhosDTO();
+            produtoDTO.pedido = new PedidoDTO();
 
             foreach (var item in produtoTamanho)
             {
@@ -388,9 +389,23 @@ namespace CatalogoProdutosMVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RealizarPedido(ProdutoDTO produto)
+        {
+            var teste = await _produtoRepository.GetProdutos(null, null); 
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public IActionResult Pedidos()
         {
             return View();
         }
     }
+}
+
+public class SelectListItem
+{
+    public string Value { get; set; }
+    public string Text { get; set; }
 }
