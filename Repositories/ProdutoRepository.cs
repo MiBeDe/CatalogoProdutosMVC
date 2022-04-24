@@ -10,14 +10,14 @@ namespace CatalogoProdutosMVC.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        //private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
-        private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
+        private IConfiguration configuration;
         private string projetoId;
         FirestoreDb _firestoreDb;
 
-        public ProdutoRepository(CatalogoProdutosDbContext context)
+        public ProdutoRepository(IConfiguration iConfig)
         {
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", diretorio);
+            configuration = iConfig;
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", configuration.GetSection("DirectoryConfig").GetSection("Base").Value);
             projetoId = "catalogoprodutoswebmvc";
             _firestoreDb = FirestoreDb.Create(projetoId);
         }
