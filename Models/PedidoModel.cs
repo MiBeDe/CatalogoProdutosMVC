@@ -5,6 +5,7 @@ namespace CatalogoProdutosMVC.Models
     [FirestoreData]
     public class PedidoModel
     {
+        public string IdPedido { get; set; }
         [FirestoreProperty]
         public string Vendedor { get; set; }
         [FirestoreProperty]
@@ -26,9 +27,9 @@ namespace CatalogoProdutosMVC.Models
         [FirestoreProperty]
         public int Quantidade { get; set; }
         [FirestoreProperty]
-        public DateTime DataPedido { get; set; }
+        public string DataPedido { get; set; }
         [FirestoreProperty]
-        public DateTime DataEnvio { get; set; }
+        public string DataEnvio { get; set; }
         [FirestoreProperty]
         public int StatusPagamento { get; set; }
 

@@ -27,9 +27,11 @@ namespace CatalogoProdutosMVC.Controllers
         public async Task<IActionResult> RealizarPedido(PedidoDTO pedido)
         {
             PedidoModel pedidoModel = _mapper.Map<PedidoDTO, PedidoModel>(pedido);
+
+        
             await _pedidoRepository.IncluirPedido(pedidoModel);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Products");
         }
     }
 }

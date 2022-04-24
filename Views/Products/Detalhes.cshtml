@@ -414,7 +414,7 @@
                         </div>
                         <div class="form-group">
                             <label for="categoria">Quantidade</label>
-                            <select asp-for="@Model.pedido.Quantidade" class="form-select">
+                            <select asp-for="@Model.pedido.Quantidade" class="form-select selectQuantidade">
                                 @for (var i = 1; i <= Model.Quantidade; i++)
                                 {
                                     if (i == 1)
@@ -428,6 +428,17 @@
                                 }
                             </select>
                         </div>
+                        <div style="display:inline-flex ">
+                            <div style="font-size:18px; font-weight:bold; padding-top:10px; width: 62px;">
+                                Total :
+                            </div>
+                            <div style="padding-top:10px; font-size:18px; color:red">
+                                <p class="precoProd">R$ @Model.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+                            </div>
+                            
+                        </div>
+                        <input type="hidden" value="@Model.Preco" id="hdPrecoProd"/>
+                        <input type="hidden" asp-for="@Model.pedido.Preco" value="@Model.Preco" id="hdPrecoTotalPedido"/>
                         <input type="hidden" asp-for="@Model.pedido.Cor" value="@Model.Cor" />
                         <input type="hidden" asp-for="@Model.pedido.IdProduto" value="@Model.IdProd" />
                         <input type="hidden" asp-for="@Model.pedido.Produto" value="@Model.NomeProduto" />

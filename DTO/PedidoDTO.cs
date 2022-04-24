@@ -5,6 +5,7 @@ namespace CatalogoProdutosMVC.DTO
    
     public class PedidoDTO
     {
+        public string IdPedido { get; set; }
         [Required]
         public string Vendedor { get; set; }
         [Required]
@@ -17,8 +18,8 @@ namespace CatalogoProdutosMVC.DTO
         public string Categoria { get; set; }
         public string SubCategoria { get; set; }
         public int Quantidade { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataEnvio { get; set; }
+        public string DataPedido { get; set; }
+        public string DataEnvio { get; set; }
         public int StatusPagamento { get; set; }
     }
 }

@@ -60,3 +60,16 @@ function getDatatable(id) {
 $('.btn-check-on').click(function(){
     $('.pedir')[0].removeAttribute("disabled", "disabled")
 })
+
+$('.selectQuantidade').on('change', function () {
+    var quantidadeNum = parseFloat(this.value);
+    var precoNum = $('#hdPrecoProd').val();
+    var precoNumPonto = precoNum.replace(',', '.');
+    var precoConvertFloat = parseFloat(precoNumPonto).toFixed(2);
+
+    var calculo = (precoConvertFloat * quantidadeNum).toFixed(2).replace(".",",");
+
+    $('.precoProd')[0].textContent = "R$ " + calculo;
+
+    $('#hdPrecoTotalPedido').val(calculo);
+})
