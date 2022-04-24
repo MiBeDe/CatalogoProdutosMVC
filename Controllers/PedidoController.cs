@@ -9,13 +9,12 @@ namespace CatalogoProdutosMVC.Controllers
     public class PedidoController : Controller      
     {
         private readonly IPedidoRepository _pedidoRepository;
-        private readonly IProdutoRepository _produtoRepository;
+
         private readonly IMapper _mapper;
 
         public PedidoController(IPedidoRepository pedidoRepository, IMapper mapper, IProdutoRepository produtoRepository)
         {
             _pedidoRepository = pedidoRepository;
-            _produtoRepository = produtoRepository;
             _mapper = mapper;
         }
 

@@ -10,8 +10,8 @@ namespace CatalogoProdutosMVC.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        private string projetoId;
-        private IConfiguration configuration;
+        private readonly string projetoId;
+        private readonly IConfiguration configuration;
         FirestoreDb _firestoreDb;
 
         public ProdutoRepository(IConfiguration iConfig)

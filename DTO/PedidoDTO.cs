@@ -21,5 +21,6 @@ namespace CatalogoProdutosMVC.DTO
         public string DataPedido { get; set; }
         public string DataEnvio { get; set; }
         public int StatusPagamento { get; set; }
+        public string Image { get; set; }
     }
 }
