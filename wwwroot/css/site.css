@@ -225,11 +225,9 @@ hr.rounded {
     margin-left: 10px
 }
 
-/*@media(max-width: 1200px) {
+@media(max-width: 1000px) {
     #responsive_cards {
-        width: 350px;
+        display: flex;
+        flex-direction: column;
     }
-    .card-img-top {
-        width: 350px;
-    }
-}*/
+}

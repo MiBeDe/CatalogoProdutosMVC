@@ -12,14 +12,14 @@
         </div>
     </div>
 </section>
-<div class="container">
+<div class="container" >
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach (var item in Model)
         {
             <div class="col">
-                <div class="card" style="max-width: 402px; min-width: 402px" id="responsive_cards">
+                <div class="card" @*style="max-width: 402px; min-width: 402px"*@>
                     <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
-                        <img src="@item.Image1" class="card-img-top" style="max-height: 460px; min-height: 460px; width:400px;" />
+                        <img src="@item.Image1" class="card-img-top" @*style="max-height: 460px; min-height: 460px; width:400px;"*@ />
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">@item.NomeProduto</h5>
