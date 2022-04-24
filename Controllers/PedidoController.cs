@@ -19,9 +19,9 @@ namespace CatalogoProdutosMVC.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult Pedidos()
+        public async Task<IActionResult> Pedidos()
         {
-            var pedidos = _pedidoRepository.GetPedidos();
+            var pedidos = await _pedidoRepository.GetPedidos();
             return View(pedidos);
         }
 
