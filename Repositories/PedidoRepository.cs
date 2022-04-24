@@ -50,10 +50,47 @@ namespace CatalogoProdutosMVC.Repositories
             return listaPedidos;
         }
 
+
+
         public async Task IncluirPedido(PedidoModel pedido)
         {
             CollectionReference collectionReference = _firestoreDb.Collection("pedidos");
             await collectionReference.AddAsync(pedido);
+        }
+
+        public async Task DeletePedido(PedidoModel pedido)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("pedidos").Document(pedido.IdPedido);
+            await documentReference.DeleteAsync();
+          
+        }
+
+        public async Task AlterarStatusPedido(PedidoModel pedido)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("pedidos").Document(pedido.IdPedido);
+            await documentReference.SetAsync(pedido, SetOptions.Overwrite);
+        }
+
+        public async Task<PedidoModel> GetPedidoById(string idPedido)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("pedidos").Document(idPedido);
+            DocumentSnapshot documentSnapshot = await documentReference.GetSnapshotAsync();
+
+            if (documentSnapshot.Exists)
+            {
+                PedidoModel pedidoModel = documentSnapshot.ConvertTo<PedidoModel>();
+                pedidoModel.IdPedido = documentSnapshot.Id;
+
+                return pedidoModel;
+            }
+
+            return null;
+        }
+
+        public async Task AlterarStatusPagamento(PedidoModel pedido)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("pedidos").Document(pedido.IdPedido);
+            await documentReference.SetAsync(pedido, SetOptions.Overwrite);
         }
     }
 }

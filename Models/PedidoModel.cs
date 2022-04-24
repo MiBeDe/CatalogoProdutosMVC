@@ -32,6 +32,8 @@ namespace CatalogoProdutosMVC.Models
         public string DataEnvio { get; set; }
         [FirestoreProperty]
         public int StatusPagamento { get; set; }
+        [FirestoreProperty]
+        public int StatusPedido { get; set; }
 
     }
 }

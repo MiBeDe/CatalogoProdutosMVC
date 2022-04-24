@@ -1,5 +1,6 @@
 ﻿@using System.Globalization
 @using CatalogoProdutosMVC.DTO
+@using CatalogoProdutosMVC.Enums
 @model List<PedidoDTO>
 @{
     ViewData["Title"] = "Home Page";
@@ -19,8 +20,14 @@
                 <th>Preço</th>
                 <th>Categoria</th>
                 <th>Quantidade</th>
-                <th>Nome do vendedor</th>
-                <th>Nome do cliente</th>
+                <th>Vendedor</th>
+                <th>Cliente</th>
+                <th>Data Pedido</th>
+                <th>Data Envio</th>
+                <th>Status Pagamento</th>
+                <th>Status Pedido</th>
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -58,11 +65,99 @@
                         <p class="fw-normal mb-1">@pedido.Cliente</p>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger">Apagar</button>
+                        <p class="fw-normal mb-1">@pedido.DataPedido</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.DataEnvio</p>
+                    </td>
+                    <td>
+                        @switch(@pedido.StatusPagamento)
+                        {
+                            case 0:
+                                 <p class="fw-normal mb-1">@StatusPagamentoEnum.Pendente</p>
+                                 break;
+                            case 1:
+                                <p class="fw-normal mb-1">@StatusPagamentoEnum.Pago</p>
+                                break;
+                        }                     
+                    </td>
+                    <td>
+                        @switch(@pedido.StatusPedido)
+                        {
+                            case 0:
+                                 <p class="fw-normal mb-1">@StatusPedidoEnum.Pendente</p>
+                                 break;
+                            case 1:
+                                <p class="fw-normal mb-1">@StatusPedidoEnum.Em_Separação.ToString().Replace("_"," ")</p>
+                                break;
+                            case 2:
+                                <p class="fw-normal mb-1">@StatusPedidoEnum.Enviado</p>
+                                break;
+                            case 3:
+                                <p class="fw-normal mb-1">@StatusPedidoEnum.Finalizado</p>
+                                break;
+                        }      
+                        <p class="fw-normal mb-1"></p>
+                    </td>
+                    <td>
+                        @switch(@pedido.StatusPedido)
+                        {
+                             case 0:
+                                <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido">
+                                    <button type="submit" class="btn btn-danger">Apagar</button>
+                                </form>                               
+                                 break; 
+                            case 1:
+                                 <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido">
+                                    <button type="submit" class="btn btn-danger">Apagar</button>
+                                </form>                               
+
+                                 break;  
+                            case 2:
+                                 <button type="button" class="btn btn-danger" disabled>Apagar</button>
+                                 break;  
+                            case 3:
+                                 <button type="button" class="btn btn-danger" disabled>Apagar</button>
+                                 break;                              
+                        }      
+                        
+                    </td>
+                     <td>
+                        @switch(@pedido.StatusPedido)
+                        {
+                            case 0:
+                                <form asp-action="SepararPedido" asp-route-idPedido="@pedido.IdPedido">
+                                    <button type="submit" class="btn btn-success">Separar</button>
+                                </form>                                
+                                 break;  
+                            case 1:
+                                 <form asp-action="EnviarPedido" asp-route-idPedido="@pedido.IdPedido">
+                                    <button type="submit" class="btn btn-success">Enviar</button>
+                                </form>  
+                                 break; 
+                            case 2:
+                                 <button type="button" class="btn btn-success" disabled>Enviar</button>
+                                 break; 
+                            case 3:
+                                 <button type="button" class="btn btn-success" disabled>Enviar</button>
+                                 break; 
+                        }      
+                        
+                    </td>
+                     <td>
+                        @switch(@pedido.StatusPagamento)
+                        {
+                            case 0:
+                                 <form asp-action="PedidoPago" asp-route-idPedido="@pedido.IdPedido">
+                                    <button type="submit" class="btn btn-success">Pago</button>
+                                </form>                                
+                                 break;  
+                            case 1:
+                                 <button type="button" class="btn btn-success" disabled>Pago</button>
+                                 break;  
+                        }    
                     </td>
             </tbody>
         }
-
     </table>
-
 </div>
