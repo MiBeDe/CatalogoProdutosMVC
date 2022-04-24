@@ -1,0 +1,65 @@
+﻿@using System.Globalization
+@model List<PedidoModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br />
+<br />
+<div class="text-center">
+    <h3 class="display-4">Pedidos</h3>
+</div>
+<br />
+<div class="container text-center">
+    <table class="table align-middle table-bordered mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Produto</th>
+                <th>Cor</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Nome do vendedor</th>
+                <th>Nome do cliente</th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var pedido in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="~/assets/images/camiseta-branca-sus.jpg"
+                             alt=""
+                             style="width: 45px; height: 45px"
+                             class="rounded-circle" />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">@pedido.Produto</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.Cor</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+                    </td>
+                    <td>Senior</td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.Categoria</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.Vendedor</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">@pedido.Cliente</p>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger">Apagar</button>
+                    </td>
+            </tbody>
+        }
+
+    </table>
+
+</div>

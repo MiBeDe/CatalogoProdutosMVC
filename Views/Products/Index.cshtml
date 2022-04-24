@@ -12,26 +12,25 @@
         </div>
     </div>
 </section>
-@foreach (var item in Model){
-    <div class="container">
-    <div class="card mb-3" style="max-width: 352px;">
-        <div class="row g-0">
-            <div class="col-md-12">
-                <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
-                    <img src="@item.Image1" style="width:350px; max-height: 410px">
-                </a>             
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">@item.NomeProduto</h5>
-                    <p class="card-text">@item.Descricao</p>
-                    @*<p class="card-text"><small class="text-muted">Ultima atualização há 3 minutos</small></p>*@
-                    <a role="button" asp-controller="Products" asp-action="Detalhes" asp-route-idProd="@item.IdProd" class="btn btn-primary btn-sm">Ver detalhes</a>
-                    <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card" style="max-width: 402px; min-width: 402px" id="responsive_cards">
+                    <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
+                        <img src="@item.Image1" class="card-img-top" style="max-height: 460px; min-height: 460px; width:400px;" />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.NomeProduto</h5>
+                        <p class="card-text">@item.Descricao</p>
+                        <a role="button" asp-controller="Products" asp-action="Detalhes" asp-route-idProd="@item.IdProd" class="btn btn-primary btn-sm">Ver detalhes</a>
+                        <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
-    <hr class="rounded">
-    </div>
-}
+</div>
+
+

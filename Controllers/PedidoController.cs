@@ -6,20 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogoProdutosMVC.Controllers
 {
-    public class PedidoController : Controller
+    public class PedidoController : Controller      
     {
         private readonly IPedidoRepository _pedidoRepository;
+        private readonly IProdutoRepository _produtoRepository;
         private readonly IMapper _mapper;
 
-        public PedidoController(IPedidoRepository pedidoRepository, IMapper mapper)
+        public PedidoController(IPedidoRepository pedidoRepository, IMapper mapper, IProdutoRepository produtoRepository)
         {
             _pedidoRepository = pedidoRepository;
+            _produtoRepository = produtoRepository;
             _mapper = mapper;
         }
 
         public IActionResult Pedidos()
         {
-            return View();
+            var pedidos = _pedidoRepository.GetPedidos();
+            return View(pedidos);
         }
 
 
