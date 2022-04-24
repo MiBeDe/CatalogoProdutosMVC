@@ -10,9 +10,8 @@ namespace CatalogoProdutosMVC.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        //private string diretorio = "E:\\GitHubzin\\CatalogoProdutosMVC\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
-        private string diretorio = "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\catalogoprodutoswebmvc-0d38f07c0ccb.json";
         private string projetoId;
+        private IConfiguration configuration;
         FirestoreDb _firestoreDb;
 
         public ProdutoRepository(IConfiguration iConfig)
