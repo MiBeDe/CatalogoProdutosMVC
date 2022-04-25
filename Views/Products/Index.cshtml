@@ -1,7 +1,6 @@
 ﻿@using System.Globalization
 @model List<ProdutoModel>
-@{
-    ViewData["Title"] = "Home Page";
+displayViewData["Title"] = "Home Page";
 }
 <br />
 <section class="py-5 text-center container">
@@ -12,23 +11,25 @@
         </div>
     </div>
 </section>
-<div class="container" >
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="container">
+    <div class="row  row-cols-xl-3 row-cols-1 row-cols-md-2 row-cols-sm-1  g-2">
         @foreach (var item in Model)
         {
-            <div class="col">
-                <div class="card" @*style="max-width: 402px; min-width: 402px"*@>
-                    <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
-                        <img src="@item.Image1" class="card-img-top" @*style="max-height: 460px; min-height: 460px; width:400px;"*@ />
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">@item.NomeProduto</h5>
-                        <p class="card-text">@item.Descricao</p>
-                        <a role="button" asp-controller="Products" asp-action="Detalhes" asp-route-idProd="@item.IdProd" class="btn btn-primary btn-sm">Ver detalhes</a>
-                        <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
+                <div style="width: 415px;">
+                    <div class="col" style="display:block">
+                        <div class="card" style="height:600px; width:400px;" @*style="max-width: 402px; min-width: 402px"*@>
+                            <a asp-route-idProd="@item.IdProd" asp-controller="Products" asp-action="Detalhes">
+                                <img src="@item.Image1" class="card-img-top" style="height:460px; width:400px;" @*style="max-height: 460px; min-height: 460px; width:400px;"*@ />
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">@item.NomeProduto</h5>
+                                <p class="card-text">@item.Descricao</p>
+                                <a role="button" asp-controller="Products" asp-action="Detalhes" asp-route-idProd="@item.IdProd" class="btn btn-primary btn-sm">Ver detalhes</a>
+                                <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         }
     </div>
 </div>
