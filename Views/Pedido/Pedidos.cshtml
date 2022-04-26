@@ -12,6 +12,7 @@
 </div>
 <br />
 <div class="container text-center">
+
     <table class="table align-middle table-bordered mb-0 bg-white">
         <thead class="bg-light">
             <tr>
@@ -103,12 +104,12 @@
                         @switch(@pedido.StatusPedido)
                         {
                              case 0:
-                                <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido">
+                                <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido" asp-route-quantidade="@pedido.Quantidade" asp-route-idProduto="@pedido.IdProduto">
                                     <button type="submit" class="btn btn-danger">Apagar</button>
                                 </form>                               
                                  break; 
                             case 1:
-                                 <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido">
+                                 <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido" asp-route-quantidade="@pedido.Quantidade" asp-route-idProduto="@pedido.IdProduto">
                                     <button type="submit" class="btn btn-danger">Apagar</button>
                                 </form>                               
 

@@ -112,12 +112,12 @@ namespace CatalogoProdutosMVC.Repositories
 
             if(categoria != null)
             {
-                List<ProdutoModel> listFiltrada = listaProdutos.Where(x => x.Categoria == categoria && x.SubCategoria == subCategoria).ToList();
+                List<ProdutoModel> listFiltrada = listaProdutos.Where(x => x.Categoria == categoria && x.SubCategoria == subCategoria && x.Quantidade > 0).ToList();
                 return listFiltrada;
             }
 
 
-            return listaProdutos;
+            return listaProdutos.Where(x => x.Quantidade > 0).ToList();
         }
 
         public async Task<ProdutoModel> GetProdutoById(string idProd)
@@ -136,7 +136,11 @@ namespace CatalogoProdutosMVC.Repositories
             return null;
         }
 
-        
+        public async Task AtualizarProduto(ProdutoModel produto)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("produtos").Document(produto.IdProd);
+            await documentReference.SetAsync(produto, SetOptions.Overwrite);
+        }
     }
 
 }

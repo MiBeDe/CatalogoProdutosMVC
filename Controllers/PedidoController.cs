@@ -9,12 +9,14 @@ namespace CatalogoProdutosMVC.Controllers
     public class PedidoController : Controller      
     {
         private readonly IPedidoRepository _pedidoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
         private readonly IMapper _mapper;
 
         public PedidoController(IPedidoRepository pedidoRepository, IMapper mapper, IProdutoRepository produtoRepository)
         {
             _pedidoRepository = pedidoRepository;
+            _produtoRepository = produtoRepository;
             _mapper = mapper;
         }
 
@@ -30,7 +32,15 @@ namespace CatalogoProdutosMVC.Controllers
         {
             PedidoModel pedidoModel = _mapper.Map<PedidoDTO, PedidoModel>(pedido);
 
-        
+            //Dar baixa na quantidade
+            var produtoDataBase = await _produtoRepository.GetProdutoById(pedido.IdProduto);
+            var qtdRestante = (produtoDataBase.Quantidade - pedido.Quantidade);
+            produtoDataBase.Quantidade = qtdRestante;
+
+            await _produtoRepository.AtualizarProduto(produtoDataBase);
+            //-----------------------
+
+
             await _pedidoRepository.IncluirPedido(pedidoModel);
 
             return RedirectToAction("Index", "Products");
@@ -40,6 +50,15 @@ namespace CatalogoProdutosMVC.Controllers
         public async Task<IActionResult> DeletePedido(PedidoDTO pedido)
         {
             PedidoModel pedidoModel = _mapper.Map<PedidoDTO, PedidoModel>(pedido);
+
+            //Atualizar quantidade
+            var produtoDataBase = await _produtoRepository.GetProdutoById(pedido.IdProduto);
+            var qtdRestante = (produtoDataBase.Quantidade + pedido.Quantidade);
+            produtoDataBase.Quantidade = qtdRestante;
+
+            await _produtoRepository.AtualizarProduto(produtoDataBase);
+            //-----------------------
+
             await _pedidoRepository.DeletePedido(pedidoModel);
 
             return RedirectToAction(nameof(Pedidos));
