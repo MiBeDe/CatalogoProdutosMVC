@@ -42,52 +42,69 @@
                              alt=""
                              style="width: 45px; height: 45px"
                              class="rounded-circle" />
-                            <div class="ms-3">
+                            <div style="width: 350px;">
                                 <p class="fw-bold mb-1">@pedido.Produto</p>
                             </div>
                         </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.Cor</p>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.Cor</p>
+                        </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+                        </div>
+
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.Categoria</p>
-                    </td>
-                     <td>
-                        <p class="fw-normal mb-1">@pedido.Quantidade</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">@pedido.Vendedor</p>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.Categoria</p>
+                        </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.Cliente</p>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.Quantidade</p>
+                        </div>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.DataPedido</p>
+                        <div style="width:100px;">
+                             <p class="fw-normal mb-1">@pedido.Vendedor</p>
+                        </div>                     
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">@pedido.DataEnvio</p>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.Cliente</p>
+                        </div>                       
                     </td>
                     <td>
-                        @switch(@pedido.StatusPagamento)
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.DataPedido</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width:100px;">
+                            <p class="fw-normal mb-1">@pedido.DataEnvio</p>
+                        </div>                      
+                    </td>
+                    <td>
+                        @switch (@pedido.StatusPagamento)
                         {
                             case 0:
-                                 <p class="fw-normal mb-1">@StatusPagamentoEnum.Pendente</p>
-                                 break;
+                                <p class="fw-normal mb-1">@StatusPagamentoEnum.Pendente</p>
+                                break;
                             case 1:
                                 <p class="fw-normal mb-1">@StatusPagamentoEnum.Pago</p>
                                 break;
-                        }                     
+                        }
                     </td>
                     <td>
-                        @switch(@pedido.StatusPedido)
+                        @switch (@pedido.StatusPedido)
                         {
                             case 0:
-                                 <p class="fw-normal mb-1">@StatusPedidoEnum.Pendente</p>
-                                 break;
+                                <p class="fw-normal mb-1">@StatusPedidoEnum.Pendente</p>
+                                break;
                             case 1:
                                 <p class="fw-normal mb-1">@StatusPedidoEnum.Em_Separação.ToString().Replace("_"," ")</p>
                                 break;
@@ -97,66 +114,66 @@
                             case 3:
                                 <p class="fw-normal mb-1">@StatusPedidoEnum.Finalizado</p>
                                 break;
-                        }      
+                        }
                         <p class="fw-normal mb-1"></p>
                     </td>
                     <td>
-                        @switch(@pedido.StatusPedido)
+                        @switch (@pedido.StatusPedido)
                         {
-                             case 0:
+                            case 0:
                                 <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido" asp-route-quantidade="@pedido.Quantidade" asp-route-idProduto="@pedido.IdProduto">
                                     <button type="submit" class="btn btn-danger">Apagar</button>
-                                </form>                               
-                                 break; 
+                                </form>
+                                break;
                             case 1:
-                                 <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido" asp-route-quantidade="@pedido.Quantidade" asp-route-idProduto="@pedido.IdProduto">
+                                <form asp-action="DeletePedido" asp-route-idPedido="@pedido.IdPedido" asp-route-quantidade="@pedido.Quantidade" asp-route-idProduto="@pedido.IdProduto">
                                     <button type="submit" class="btn btn-danger">Apagar</button>
-                                </form>                               
+                                </form>
 
-                                 break;  
+                                break;
                             case 2:
-                                 <button type="button" class="btn btn-danger" disabled>Apagar</button>
-                                 break;  
+                                <button type="button" class="btn btn-danger" disabled>Apagar</button>
+                                break;
                             case 3:
-                                 <button type="button" class="btn btn-danger" disabled>Apagar</button>
-                                 break;                              
-                        }      
-                        
+                                <button type="button" class="btn btn-danger" disabled>Apagar</button>
+                                break;
+                        }
+
                     </td>
-                     <td>
-                        @switch(@pedido.StatusPedido)
+                    <td>
+                        @switch (@pedido.StatusPedido)
                         {
                             case 0:
                                 <form asp-action="SepararPedido" asp-route-idPedido="@pedido.IdPedido">
                                     <button type="submit" class="btn btn-success">Separar</button>
-                                </form>                                
-                                 break;  
+                                </form>
+                                break;
                             case 1:
-                                 <form asp-action="EnviarPedido" asp-route-idPedido="@pedido.IdPedido">
+                                <form asp-action="EnviarPedido" asp-route-idPedido="@pedido.IdPedido">
                                     <button type="submit" class="btn btn-success">Enviar</button>
-                                </form>  
-                                 break; 
+                                </form>
+                                break;
                             case 2:
-                                 <button type="button" class="btn btn-success" disabled>Enviar</button>
-                                 break; 
+                                <button type="button" class="btn btn-success" disabled>Enviar</button>
+                                break;
                             case 3:
-                                 <button type="button" class="btn btn-success" disabled>Enviar</button>
-                                 break; 
-                        }      
-                        
+                                <button type="button" class="btn btn-success" disabled>Enviar</button>
+                                break;
+                        }
+
                     </td>
-                     <td>
-                        @switch(@pedido.StatusPagamento)
+                    <td>
+                        @switch (@pedido.StatusPagamento)
                         {
                             case 0:
-                                 <form asp-action="PedidoPago" asp-route-idPedido="@pedido.IdPedido">
+                                <form asp-action="PedidoPago" asp-route-idPedido="@pedido.IdPedido">
                                     <button type="submit" class="btn btn-success">Pago</button>
-                                </form>                                
-                                 break;  
+                                </form>
+                                break;
                             case 1:
-                                 <button type="button" class="btn btn-success" disabled>Pago</button>
-                                 break;  
-                        }    
+                                <button type="button" class="btn btn-success" disabled>Pago</button>
+                                break;
+                        }
                     </td>
             </tbody>
         }

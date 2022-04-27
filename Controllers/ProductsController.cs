@@ -45,6 +45,10 @@ namespace CatalogoProdutosMVC.Controllers
             {
                 switch (item.Trim())
                 {
+                    case "UN":
+                        produtoDTO.checksTamanhos.UN = true;
+                        ViewBag.tamanho = "Letra";
+                        break;
                     case "PP":
                         produtoDTO.checksTamanhos.PP = true;
                         ViewBag.tamanho = "Letra";
@@ -125,6 +129,74 @@ namespace CatalogoProdutosMVC.Controllers
                         produtoDTO.checksTamanhos.Tamanho43 = true;
                         ViewBag.tamanho = "Numero";
                         break;
+                    case "44":
+                        produtoDTO.checksTamanhos.Tamanho44 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "45":
+                        produtoDTO.checksTamanhos.Tamanho45 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "46":
+                        produtoDTO.checksTamanhos.Tamanho46 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "47":
+                        produtoDTO.checksTamanhos.Tamanho47 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "48":
+                        produtoDTO.checksTamanhos.Tamanho48 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "49":
+                        produtoDTO.checksTamanhos.Tamanho49 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "50":
+                        produtoDTO.checksTamanhos.Tamanho50 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "51":
+                        produtoDTO.checksTamanhos.Tamanho51 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "52":
+                        produtoDTO.checksTamanhos.Tamanho52 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "53":
+                        produtoDTO.checksTamanhos.Tamanho53 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "54":
+                        produtoDTO.checksTamanhos.Tamanho54 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "55":
+                        produtoDTO.checksTamanhos.Tamanho55 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "56":
+                        produtoDTO.checksTamanhos.Tamanho56 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "57":
+                        produtoDTO.checksTamanhos.Tamanho57 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "58":
+                        produtoDTO.checksTamanhos.Tamanho58 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "59":
+                        produtoDTO.checksTamanhos.Tamanho59 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
+                    case "60":
+                        produtoDTO.checksTamanhos.Tamanho60 = true;
+                        ViewBag.tamanho = "Numero";
+                        break;
                     default:
                         break;
                 }
@@ -136,7 +208,20 @@ namespace CatalogoProdutosMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Cadastro(ProdutoDTO produto, IFormFile Imagem1, IFormFile Imagem2, IFormFile Imagem3)
         {
-            #region Verifica Check Tamanho Roupa
+            #region Verifica Check Tamanho por Letra
+
+            if (produto.checksTamanhos.UN == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "UN";
+                }
+                else
+                {
+                    produto.Tamanho += " - UN";
+                }
+            }
+
             if (produto.checksTamanhos.P == true)
             {
                 if (produto.Tamanho == null)
@@ -246,7 +331,7 @@ namespace CatalogoProdutosMVC.Controllers
             }
             #endregion
 
-            #region Verifica Check Tamanho Calçado
+            #region Verifica Check Tamanho por Numero
             if (produto.checksTamanhos.Tamanho33 == true)
             {
                 if (produto.Tamanho == null)
@@ -376,6 +461,210 @@ namespace CatalogoProdutosMVC.Controllers
                 else
                 {
                     produto.Tamanho += " - 43";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho44 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "44";
+                }
+                else
+                {
+                    produto.Tamanho += " - 44";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho45 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "45";
+                }
+                else
+                {
+                    produto.Tamanho += " - 45";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho46 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "46";
+                }
+                else
+                {
+                    produto.Tamanho += " - 46";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho47 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "47";
+                }
+                else
+                {
+                    produto.Tamanho += " - 47";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho48 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "48";
+                }
+                else
+                {
+                    produto.Tamanho += " - 48";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho49 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "49";
+                }
+                else
+                {
+                    produto.Tamanho += " - 49";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho50 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "50";
+                }
+                else
+                {
+                    produto.Tamanho += " - 50";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho51 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "51";
+                }
+                else
+                {
+                    produto.Tamanho += " - 51";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho52 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "52";
+                }
+                else
+                {
+                    produto.Tamanho += " - 52";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho53 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "53";
+                }
+                else
+                {
+                    produto.Tamanho += " - 53";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho54 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "54";
+                }
+                else
+                {
+                    produto.Tamanho += " - 54";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho55 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "55";
+                }
+                else
+                {
+                    produto.Tamanho += " - 55";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho56 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "56";
+                }
+                else
+                {
+                    produto.Tamanho += " - 56";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho57 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "57";
+                }
+                else
+                {
+                    produto.Tamanho += " - 57";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho58 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "58";
+                }
+                else
+                {
+                    produto.Tamanho += " - 58";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho59 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "59";
+                }
+                else
+                {
+                    produto.Tamanho += " - 59";
+                }
+            }
+
+            if (produto.checksTamanhos.Tamanho60 == true)
+            {
+                if (produto.Tamanho == null)
+                {
+                    produto.Tamanho += "60";
+                }
+                else
+                {
+                    produto.Tamanho += " - 60";
                 }
             }
             #endregion

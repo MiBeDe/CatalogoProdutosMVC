@@ -1,0 +1,114 @@
+﻿@using System.Globalization
+@using CatalogoProdutosMVC.Helpers
+@model List<ProdutoModel>
+
+@{
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<br />
+<br />
+
+<div class="text-center">
+    <h3 class="display-4">Estoque</h3>
+</div>
+<br />
+<div class="container">
+    <div style="padding-bottom: 15px;">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Filtrar" aria-label="Search" style="width:450px;">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <table class="table align-middle table-bordered mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Nome Produto</th>
+                <th>Cor</th>
+                <th>Categoria</th>
+                <th>SubCategoria</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var prod in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="@prod.Image1"
+                             alt=""
+                             style="width: 45px; height: 45px"
+                             class="rounded-circle" />
+                            <div style="padding-left:15px">
+                                <p class="fw-bold mb-1">@prod.NomeProduto</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="fw-normal mb-1">@prod.Cor</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="fw-normal mb-1">@prod.Categoria</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="fw-normal mb-1">@prod.SubCategoria</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="fw-normal mb-1">@prod.Preco</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="fw-normal mb-1">@prod.Quantidade</p>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success">Alterar</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success">+/- Quantidade</button>
+                    </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+    @if(pager.TotalPages > 0)
+    {
+     <div class="container-fluid">
+         <ul class="pagination justify-content-end" style="padding-top: 5px;">
+
+                @for(var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                {
+                    <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                        <a class="page-link" asp-controller="Estoque" asp-action="Listar" asp-route-pg="@pge"> @pge </a>
+                    </li>
+                }
+
+         </ul>
+    </div>
+
+    }
+</div>

@@ -48,25 +48,26 @@
                     </ul>
                 </div>
             </li>           
+            
+            <li class="border-top my-3"></li>
             <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#pedidos_collapse" aria-expanded="false">
                     Pedidos
                 </button>
                 <div class="collapse" id="pedidos_collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
-                        <li><a class="link-dark rounded" id="camisetas" asp-controller="Pedido" asp-action="Pedidos">Pedidos pendentes</a></li>
+                        <li><a class="link-dark rounded" id="camisetas" asp-route="Pedido">Pedidos pendentes</a></li>
                     </ul>
                 </div>
             </li>
-
-            <li class="border-top my-3"></li>
             <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                    Cadastar Produto
+                    Produtos
                 </button>
                 <div class="collapse" id="account-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" id="ul_link">
-                        <li><a class="link-dark rounded" asp-controller="Products" asp-action="Cadastro">Novo produto</a></li>
+                        <li><a class="link-dark rounded" asp-route="Cadastrar">Novo produto</a></li>
+                        <li><a class="link-dark rounded" asp-route="Estoque">Estoque</a></li>
                     </ul>
                 </div>
             </li>

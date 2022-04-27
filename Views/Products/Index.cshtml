@@ -21,10 +21,15 @@
                             <img src="@item.Image1" class="card-img-top" style="height:460px; width:400px;" @*style="max-height: 460px; min-height: 460px; width:400px;"*@ />
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title">@item.NomeProduto</h5>
-                            <p class="card-text">@item.Descricao</p>
+                            <div style="width: 374px; height: 75px; text-align:center">
+                                <h5 class="card-title">@item.NomeProduto</h5>
+                            </div>                           
+                            @*<p class="card-text">@item.Descricao</p>*@
+                            <div>
                             <a role="button" asp-controller="Products" asp-action="Detalhes" asp-route-idProd="@item.IdProd" class="btn btn-primary btn-sm">Ver detalhes</a>
                             <a role="button" class="btn btn-dark btn-sm">R$ @item.Preco.ToString("F2", CultureInfo.InstalledUICulture)</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>

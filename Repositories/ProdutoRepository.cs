@@ -83,11 +83,8 @@ namespace CatalogoProdutosMVC.Repositories
                 }
 
                 countFor++;
-
             }
-
-            //Salvar demais dados no Firebase Database
-            
+            //Salvar demais dados no Firebase Database           
             CollectionReference collectionReference = _firestoreDb.Collection("produtos");
             await collectionReference.AddAsync(produto);            
         }       
@@ -140,6 +137,12 @@ namespace CatalogoProdutosMVC.Repositories
         {
             DocumentReference documentReference = _firestoreDb.Collection("produtos").Document(produto.IdProd);
             await documentReference.SetAsync(produto, SetOptions.Overwrite);
+        }
+
+        public async Task DeleteProduto(string idProd)
+        {
+            DocumentReference documentReference = _firestoreDb.Collection("produtos").Document(idProd);
+            await documentReference.DeleteAsync();
         }
     }
 

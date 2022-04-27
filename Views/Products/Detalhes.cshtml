@@ -42,13 +42,13 @@
     <div class="container text-center" style="max-width: 400px">
         <p class="categoria_detalhes">Cor: @Model.Cor</p>
     </div>
-    <div class="container-sm">
+    <div class="container-sm" style="text-align:center">
         <div style="display: inline-flex">
-            <div>
+            @*<div>
                 <p class="fs-4">Preço: &nbsp; </p>
-            </div>
+            </div>*@
             <div>
-                <p class="fs-4" style="color: red">R$ @Model.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
+                <p class="fs-1" style="color: red">R$ @Model.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
             </div>
         </div>
     </div>
@@ -56,157 +56,75 @@
         <div>
             <div class="container">
                 <div class="div_tamanhos_01">
+                    <p class="fs-6" style="text-align:center;">Escolha seu tamanho</p>
                     <div id="div_tamanhos">
                         @if (ViewBag.tamanho == "Letra")
                         {
+                            if (Model.checksTamanhos.UN == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-un" value="UN" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-un">UN</label>
+                            }
+
                             if (Model.checksTamanhos.PP == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-pp" value="PP" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-pp">PP</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    PP
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                            
 
                             if (Model.checksTamanhos.P == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-p" value="P" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-p">P</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    P
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                            
 
                             if (Model.checksTamanhos.M == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-m" value="M" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-m">M</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    M
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                           
 
                             if (Model.checksTamanhos.G == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-g" value="G" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-g">G</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    G
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                            
 
                             if (Model.checksTamanhos.GG == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-gg" value="GG" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-gg">GG</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    GG
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
+                           
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.XG == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-xg" value="XG" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-xg">XG</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    XG
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                            
                             if (Model.checksTamanhos.XGG == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-xgg" value="XGG" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-xgg">XGG</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    XGG
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                           
                             if (Model.checksTamanhos.EG == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-eg" value="EG" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-eg">EG</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    EG
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                           
                             if (Model.checksTamanhos.EGG == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-egg" value="EGG" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-egg">EGG</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    EGG
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
-                            }
+                           
                         }
 
                         @*Verificação tamanho (Calçados)*@
@@ -217,32 +135,11 @@
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-34" value="34" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-34">34</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    34
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho35 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-35" value="35" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-35">35</label>
-                            }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    35
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
                             }
 
                             if (Model.checksTamanhos.Tamanho36 == true)
@@ -250,114 +147,150 @@
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-36" value="36" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-36">36</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    36
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho37 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-37" value="37" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-37">37</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    37
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho38 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-38" value="38" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-38">38</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    38
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho39 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-39" value="39" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-39">39</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    39
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho40 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-40" value="40" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-40">40</label>
                             }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    40
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
 
-                                </button>
-                            }
                             if (Model.checksTamanhos.Tamanho41 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-41" value="41" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-41">41</label>
-                            }
-                            else
-                            {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    41
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-
-                                </button>
                             }
                             if (Model.checksTamanhos.Tamanho42 == true)
                             {
                                 <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-42" value="42" autocomplete="off">
                                 <label class="btn btn-outline-primary tamanho" for="btn-check-42">42</label>
                             }
-                            else
+
+                            if (Model.checksTamanhos.Tamanho43 == true)
                             {
-                                <button type="button" class="btn position-relative tamanho" disabled>
-                                    42
-                                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-dark border border-light badge rounded-pill bg-dark">
-                                        X
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                </button>
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-43" value="43" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-43">43</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho44 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-44" value="44" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-44">44</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho45 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-45" value="45" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-45">45</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho46 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-46" value="46" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-46">46</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho47 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-47" value="47" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-47">47</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho48 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-48" value="48" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-48">48</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho49 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-49" value="49 autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-49">49</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho50 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-50" value="50" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-50">50</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho51 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-51" value="51" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-51">51</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho52 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-52" value="52" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-52">52</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho53 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-53" value="53" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-53">53</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho54 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-54" value="54" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-54">54</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho55 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-55" value="55" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-55">55</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho56 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-56" value="56" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-56">56</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho57 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-57" value="57 autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-57">57</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho58 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-58" value="58" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-58">58</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho59 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-59" value="59" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-59">59</label>
+                            }
+
+                            if (Model.checksTamanhos.Tamanho60 == true)
+                            {
+                                <input asp-for="@Model.pedido.Tamanho" type="radio" name="pedido.Tamanho" class="btn-check btn-check-on" id="btn-check-60" value="60" autocomplete="off">
+                                <label class="btn btn-outline-primary tamanho" for="btn-check-60">60</label>
                             }
                         }
-                        
                     </div>
                 </div>
             </div>
@@ -378,12 +311,12 @@
             </div>
             <br />
             <div class="d-grid gap-2 col-9 mx-auto">
-                <button class="btn btn-success pedir" data-bs-toggle="modal" data-bs-target="#modalPedido" type="button" disabled="disabled" >Pedir</button>
+                <button class="btn btn-success pedir" data-bs-toggle="modal" data-bs-target="#modalPedido" type="button" disabled="disabled">Pedir</button>
             </div>
         </div>
 
         @*-------------------------Inicio Modal-------------------------------------------------------------------------------------------------*@
-        <div class="modal fade" id="modalPedido" tabindex="-1" aria-labelledby="modalPedidoLabel" aria-hidden="true" >
+        <div class="modal fade" id="modalPedido" tabindex="-1" aria-labelledby="modalPedidoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -435,10 +368,10 @@
                             <div style="padding-top:10px; font-size:18px; color:red">
                                 <p class="precoProd">R$ @Model.Preco.ToString("F2", CultureInfo.InstalledUICulture)</p>
                             </div>
-                            
+
                         </div>
-                        <input type="hidden" value="@Model.Preco" id="hdPrecoProd"/>
-                        <input type="hidden" asp-for="@Model.pedido.Preco" value="@Model.Preco" id="hdPrecoTotalPedido"/>
+                        <input type="hidden" value="@Model.Preco" id="hdPrecoProd" />
+                        <input type="hidden" asp-for="@Model.pedido.Preco" value="@Model.Preco" id="hdPrecoTotalPedido" />
                         <input type="hidden" asp-for="@Model.pedido.Cor" value="@Model.Cor" />
                         <input type="hidden" asp-for="@Model.pedido.IdProduto" value="@Model.IdProd" />
                         <input type="hidden" asp-for="@Model.pedido.Produto" value="@Model.NomeProduto" />

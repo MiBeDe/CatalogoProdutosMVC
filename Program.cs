@@ -49,4 +49,20 @@ app.MapControllerRoute(
     pattern: "Products/{idProd}",
     defaults: new {Controller = "Products", Action = "Detalhes"}
     );
+app.MapControllerRoute(
+    name: "Cadastrar",
+    pattern: "Cadastrar",
+    defaults: new { Controller = "Products", Action = "Cadastro" }
+    );
+
+app.MapControllerRoute(
+    name: "Pedido",
+    pattern: "Pedido",
+    defaults: new { Controller = "Pedido", Action = "Pedidos" }
+    );
+app.MapControllerRoute(
+    name: "Estoque",
+    pattern: "Estoque",
+    defaults: new { Controller = "Estoque", Action = "Listar" }
+    );
 app.Run();

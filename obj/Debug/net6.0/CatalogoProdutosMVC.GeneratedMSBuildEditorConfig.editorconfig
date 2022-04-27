@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = Y:\Github\CatalogoProdutosProject\CatalogoProdutos
 build_property._RazorSourceGeneratorDebug = 
 
+[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Estoque/Listar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxMaXN0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
