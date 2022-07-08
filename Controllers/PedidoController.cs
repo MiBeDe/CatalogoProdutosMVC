@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CatalogoProdutosMVC.DTO;
 using CatalogoProdutosMVC.Models;
-using CatalogoProdutosMVC.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -10,13 +9,10 @@ namespace CatalogoProdutosMVC.Controllers
 {
     public class PedidoController : Controller      
     {
-        private readonly IPedidoRepository _pedidoRepository;     
-
         private readonly IMapper _mapper;
 
-        public PedidoController(IPedidoRepository pedidoRepository, IMapper mapper)
+        public PedidoController(IMapper mapper)
         {
-            _pedidoRepository = pedidoRepository;
             _mapper = mapper;
         }
 
@@ -39,7 +35,6 @@ namespace CatalogoProdutosMVC.Controllers
                 }
             }
 
-            //var pedidos = await _pedidoRepository.GetPedidos();
             return View(pedidos);
         }
 
@@ -88,8 +83,6 @@ namespace CatalogoProdutosMVC.Controllers
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 var httpReponse = httpClient.PostAsync(urlRequestIncluirPedido, new StringContent(jsonInString, Encoding.UTF8, "application/json")).Result;
             }
-
-            //await _pedidoRepository.IncluirPedido(pedidoModel);
 
             return RedirectToAction("Index", "Products");
         }
@@ -143,8 +136,6 @@ namespace CatalogoProdutosMVC.Controllers
                 }
             }
 
-            //await _pedidoRepository.DeletePedido(pedidoModel);
-
             return null;
         }
 
@@ -179,11 +170,6 @@ namespace CatalogoProdutosMVC.Controllers
                 var httpResponse = httpClient.PutAsync(urlRequestAlterarStatusPedido, new StringContent(jsonInString, Encoding.UTF8, "application/json")).Result;
             }
 
-            //var pedidoObj = await _pedidoRepository.GetPedidoById(pedido.IdPedido);
-            //pedidoObj.StatusPedido = 1;
-
-            //await _pedidoRepository.AlterarStatusPedido(pedidoObj);
-
             return RedirectToAction(nameof(Pedidos));
         }
 
@@ -207,9 +193,6 @@ namespace CatalogoProdutosMVC.Controllers
 
             Pedido.StatusPedido = 2;
             Pedido.DataEnvio = DateTime.Now.ToString();
-            //var pedidoObj = await _pedidoRepository.GetPedidoById(pedido.IdPedido);
-            //pedidoObj.StatusPedido = 2;
-            //pedidoObj.DataEnvio = DateTime.Now.ToString();
 
             using (HttpClient httpClient = new HttpClient())
             {
@@ -220,8 +203,6 @@ namespace CatalogoProdutosMVC.Controllers
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 var httpResponse = httpClient.PutAsync(urlRequestAlterarStatusPedido, new StringContent(jsonInString, Encoding.UTF8, "application/json")).Result;
             }
-
-            //await _pedidoRepository.AlterarStatusPedido(pedidoObj);
 
             return RedirectToAction(nameof(Pedidos));
         }
@@ -254,11 +235,6 @@ namespace CatalogoProdutosMVC.Controllers
                 httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
                 var httpResponse = httpClient.PutAsync(urlRequestAlterarStatusPagamento, new StringContent(jsonInString, Encoding.UTF8, "application/json")).Result;
             }
-
-            //var pedidoObj = await _pedidoRepository.GetPedidoById(pedido.IdPedido);
-            //pedidoObj.StatusPagamento = 1;
-
-            //await _pedidoRepository.AlterarStatusPagamento(pedidoObj);
 
             return RedirectToAction(nameof(Pedidos));
         }

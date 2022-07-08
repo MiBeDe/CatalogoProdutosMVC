@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CatalogoProdutosMVC.Helpers;
 using CatalogoProdutosMVC.Models;
-using CatalogoProdutosMVC.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
