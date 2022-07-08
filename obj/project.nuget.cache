@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E7Yi5UYgAs5crVWm8QiZcvX+FaPMFJfsPvDuqJFKVfwiDiRDyRy01hDKfjb1IgYouksJs/79wEdOz+cK6PE8IQ==",
+  "dgSpecHash": "PuIhgBlLPNpja5D8rNQM2cj+jIQvVaGcCmWLgQxbaBL6meHyjetvyDRaA6keIhXaCnONLdsyIwaS9KmpwdLLzA==",
   "success": true,
-  "projectFilePath": "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\CatalogoProdutosMVC.csproj",
+  "projectFilePath": "D:\\Github\\CatalogoProdutosMVC\\CatalogoProdutosMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michel\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Michel\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

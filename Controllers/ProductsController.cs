@@ -3,26 +3,51 @@ using CatalogoProdutosMVC.DTO;
 using CatalogoProdutosMVC.Models;
 using CatalogoProdutosMVC.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace CatalogoProdutosMVC.Controllers
 {
     
     public class ProductsController : Controller
-    {
-        private readonly IProdutoRepository _produtoRepository;
+    {       
         private readonly IMapper _mapper;
-        public ProductsController(IProdutoRepository produtoRepository, IMapper mapper)
+        public ProductsController(IMapper mapper)
         {
-            _produtoRepository = produtoRepository;
             _mapper = mapper;
         }
 
       
         public async Task<IActionResult> Index(string cat, string sub)
         {
-            var produtos = await _produtoRepository.GetProdutos(cat, sub);
+            List<ProdutoModel> Produto = new List<ProdutoModel>();
 
-            return View(produtos); 
+            string urlRequestGetProdutos; 
+            if(cat != null && sub != null)
+            {
+                urlRequestGetProdutos = string.Format("https://localhost:7086/api/Products?cat={0}&sub={1}", cat, sub);
+            }
+            else
+            {
+                urlRequestGetProdutos = string.Format("https://localhost:7086/api/Products");
+            }
+
+            using(HttpClient httpClient = new HttpClient())
+            {
+                string url = urlRequestGetProdutos;
+                httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+                HttpResponseMessage responseMessage = httpClient.GetAsync(url).Result;
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                    Produto = JsonConvert.DeserializeObject<List<ProdutoModel>>(responseData);
+                }
+            }
+
+            return View(Produto); 
         }
 
         public IActionResult Cadastro()
@@ -33,11 +58,24 @@ namespace CatalogoProdutosMVC.Controllers
 
         public async Task<IActionResult> Detalhes(string idProd)
         {
-            var produto = await _produtoRepository.GetProdutoById(idProd);
+            var urlRequestDetalhes = string.Format("https://localhost:7086/api/Products/{0}", idProd);
+            ProdutoModel Produto = new ProdutoModel();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                string url = urlRequestDetalhes;
+                httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+                HttpResponseMessage responseMessage = httpClient.GetAsync(url).Result;
 
-            ProdutoDTO produtoDTO = _mapper.Map<ProdutoModel, ProdutoDTO>(produto);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                    Produto = JsonConvert.DeserializeObject<ProdutoModel>(responseData);
+                }
+            }
 
-            var produtoTamanho = produto.Tamanho.Split('-');
+            ProdutoDTO produtoDTO = _mapper.Map<ProdutoModel, ProdutoDTO>(Produto);
+
+            var produtoTamanho = Produto.Tamanho.Split('-');
             produtoDTO.checksTamanhos = new ChecksTamanhosDTO();
             produtoDTO.pedido = new PedidoDTO();
 
@@ -670,11 +708,93 @@ namespace CatalogoProdutosMVC.Controllers
             #endregion
 
 
-            ProdutoModel produtoModel = _mapper.Map<ProdutoDTO, ProdutoModel>(produto);
+            //ProdutoModel produtoModel = _mapper.Map<ProdutoDTO, ProdutoModel>(produto);
             
-            await _produtoRepository.CadastrarProduto(produtoModel, Imagem1, Imagem2, Imagem3);
+            var urlRequestCadastroProd =  string.Format("https://localhost:7086/api/Products");
+            List<IFormFile> ImagensStream = new List<IFormFile>();
+
+            //byte[] data;
+            int count = 1;
+            MultipartFormDataContent multiContent = new MultipartFormDataContent();
+
+            ImagensStream.Add(Imagem1);
+            ImagensStream.Add(Imagem2);
+            ImagensStream.Add(Imagem3);
+
+            foreach (var item in ImagensStream)
+            {
+                if (item != null)
+                {
+                    byte[] data;
+                    using (var br = new BinaryReader(item.OpenReadStream()))
+                    {
+                        data = br.ReadBytes((int)item.OpenReadStream().Length);
+                    }
+                    ByteArrayContent bytes = new ByteArrayContent(data);
+                    multiContent.Add(bytes, "file" + count, item.FileName);
+                    count++;
+
+                }
+            }
+
+            if (produto.Categoria != null)
+            {
+                multiContent.Add(new StringContent(produto.Categoria), "Categoria");
+            }
+            if (produto.SubCategoria != null)
+            {
+                multiContent.Add(new StringContent(produto.SubCategoria), "SubCategoria");
+            }
+            if (produto.NomeProduto != null)
+            {
+                multiContent.Add(new StringContent(produto.NomeProduto), "NomeProduto");
+            }
+            if (produto.Descricao != null)
+            {
+                multiContent.Add(new StringContent(produto.Descricao), "Descricao");
+            }
+            if (produto.Tamanho != null)
+            {
+                multiContent.Add(new StringContent(produto.Tamanho), "Tamanho");
+            }
+            if (produto.Cor != null)
+            {
+                multiContent.Add(new StringContent(produto.Cor), "Cor");
+            }
+            if (produto.Preco > 0)
+            {
+                multiContent.Add(new StringContent(produto.Preco.ToString()), "Preco");
+            }
+            if (produto.Quantidade > 0)
+            {
+                multiContent.Add(new StringContent(produto.Quantidade.ToString()), "Quantidade");
+            }
+            if (produto.PathImages != null)
+            {
+                multiContent.Add(new StringContent(produto.PathImages), "PathImages");
+            }
+            if (produto.Image1 != null)
+            {
+                multiContent.Add(new StringContent(produto.Image1), "Image1");
+            }
+            if (produto.Image2 != null)
+            {
+                multiContent.Add(new StringContent(produto.Image2), "Image2");
+            }
+            if (produto.Image3 != null)
+            {
+                multiContent.Add(new StringContent(produto.Image3), "Image3");
+            }
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var response = await httpClient.PostAsync(urlRequestCadastroProd, multiContent);
+            }
+
             return RedirectToAction(nameof(Index));
+
         }
-    
+
     }
+
 }

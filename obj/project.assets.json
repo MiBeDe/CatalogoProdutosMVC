@@ -7811,11 +7811,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\CatalogoProdutosMVC.csproj",
+      "projectUniqueName": "D:\\Github\\CatalogoProdutosMVC\\CatalogoProdutosMVC.csproj",
       "projectName": "CatalogoProdutosMVC",
-      "projectPath": "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\CatalogoProdutosMVC.csproj",
+      "projectPath": "D:\\Github\\CatalogoProdutosMVC\\CatalogoProdutosMVC.csproj",
       "packagesPath": "C:\\Users\\Michel\\.nuget\\packages\\",
-      "outputPath": "Y:\\Github\\CatalogoProdutosProject\\CatalogoProdutos\\obj\\",
+      "outputPath": "D:\\Github\\CatalogoProdutosMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7895,7 +7895,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -38,7 +38,7 @@
                 <th>Preço</th>
                 <th>Quantidade</th>
                 <th></th>
-                <th></th>
+                @*<th></th>*@
                 <th></th>
             </tr>
         </thead>
@@ -83,16 +83,51 @@
                         </div>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-danger">Excluir</button>
+                        <form asp-action="DeleteProduto" asp-route-idProduto="@prod.IdProd">
+                              <button type="submit" class="btn btn-danger" >Excluir</button>
+                        </form>
+                        
                     </td>
-                    <td>
+                   @* <td>
                         <button type="submit" class="btn btn-success">Alterar</button>
-                    </td>
+                    </td>*@
                     <td>
-                        <button type="submit" class="btn btn-success">+/- Quantidade</button>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAltQuantidade-@prod.IdProd">+/- Quantidade</button>
                     </td>
                 </tr>
             </tbody>
+       @*-------------------------Inicio Modal-------------------------------------------------------------------------------------------------*@
+        <form class="row g-3 needs-validation" asp-action="AlterarQuantidade" method="post" novalidate>
+            <div class="modal fade" id="modalAltQuantidade-@prod.IdProd" tabindex="-1" aria-labelledby="modalAltQuantidadeLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="" modal-title id="modalAltQuantidadeLabel">Quantidade</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" />
+                        <div class="col-md-6">                          
+                            <input asp-for="@prod.Quantidade" name="quantidade" class="form-control" id="validationCliente" required />
+                            <div class="valid-feedback">
+                                Tudo certo!
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, preencha o nome do cliente.
+                            </div>
+                        </div>                        
+                        <input type="hidden" asp-for="@prod.IdProd" value="@prod.IdProd" name="idProd" />
+                        <br />
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-sm btn-primary">Gravar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        @*--------------------------------------------------------------------------------------------------------------------------------------*@
+
         }
     </table>
     @if(pager.TotalPages > 0)
@@ -106,7 +141,6 @@
                         <a class="page-link" asp-controller="Estoque" asp-action="Listar" asp-route-pg="@pge"> @pge </a>
                     </li>
                 }
-
          </ul>
     </div>
 

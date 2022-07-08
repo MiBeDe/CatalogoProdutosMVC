@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 string cnn = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<CatalogoProdutosDbContext>(op => op.UseSqlServer(cnn));
 
-builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+//builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 
 

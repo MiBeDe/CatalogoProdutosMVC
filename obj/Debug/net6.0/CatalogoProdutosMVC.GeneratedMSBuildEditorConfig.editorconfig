@@ -8,57 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CatalogoProdutosMVC
 build_property.RootNamespace = CatalogoProdutosMVC
-build_property.ProjectDir = Y:\Github\CatalogoProdutosProject\CatalogoProdutos\
+build_property.ProjectDir = D:\Github\CatalogoProdutosMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = Y:\Github\CatalogoProdutosProject\CatalogoProdutos
+build_property.MSBuildProjectDirectory = D:\Github\CatalogoProdutosMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Estoque/Listar.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Estoque/Listar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxMaXN0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Home/Index.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Home/Privacy.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Pedido/Pedidos.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Pedido/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Products/Cadastro.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Products/Cadastro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ2FkYXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Products/Detalhes.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Products/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Products/Index.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Shared/Error.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/_ViewImports.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/_ViewStart.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[Y:/Github/CatalogoProdutosProject/CatalogoProdutos/Views/Shared/_Layout.cshtml]
+[D:/Github/CatalogoProdutosMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7igu9xkwzu

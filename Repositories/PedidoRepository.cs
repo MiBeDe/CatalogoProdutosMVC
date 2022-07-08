@@ -12,15 +12,13 @@ namespace CatalogoProdutosMVC.Repositories
         FirestoreDb _firestoreDb;
 
         private readonly IConfiguration configuration;
-        private IProdutoRepository _produtoRepository;
 
-        public PedidoRepository(IConfiguration iConfig, IProdutoRepository produtoRepository)
+        public PedidoRepository(IConfiguration iConfig)
         {
             configuration = iConfig;
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", configuration.GetSection("DirectoryConfig").GetSection("Base").Value);
             projetoId = "catalogoprodutoswebmvc";
             _firestoreDb = FirestoreDb.Create(projetoId);
-            _produtoRepository = produtoRepository;
         }
 
         public async Task<List<PedidoDTO>> GetPedidos()
@@ -40,8 +38,22 @@ namespace CatalogoProdutosMVC.Repositories
                     pedidoDTO.IdPedido = documentSnapshot.Id;
 
                     //obter imagem produto:
-                    var produto = await _produtoRepository.GetProdutoById(pedidoDTO.IdProduto);
-                    pedidoDTO.Image = produto.Image1;
+                    var urlRequestGetProdutoById = string.Format("https://localhost:7086/api/Products/{0}", pedidoDTO.IdProduto);
+                    ProdutoModel Produto = new ProdutoModel();
+                    using (HttpClient httpClient = new HttpClient())
+                    {
+                        string url = urlRequestGetProdutoById;
+                        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+                        HttpResponseMessage responseMessage = httpClient.GetAsync(url).Result;
+
+                        if (responseMessage.IsSuccessStatusCode)
+                        {
+                            var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+                            Produto = JsonConvert.DeserializeObject<ProdutoModel>(responseData);
+                        }
+                    }
+                    //var produto = await _produtoRepository.GetProdutoById(pedidoDTO.IdProduto);
+                    pedidoDTO.Image = Produto.Image1;
 
                     listaPedidos.Add(pedidoDTO);
                 }

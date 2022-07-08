@@ -16,6 +16,9 @@
         public string Image2 { get; set; }
         public string Image3 { get; set; }
 
+        public IFormFile File1 { get; set; }
+        public IFormFile File2 { get; set; }
+        public IFormFile File3 { get; set; }
 
         public ChecksTamanhosDTO checksTamanhos { get; set; }
         public PedidoDTO pedido { get; set; }
